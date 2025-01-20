@@ -1,0 +1,2 @@
+# smartDataAppRN
+smartDataAppRN
