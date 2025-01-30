@@ -14,16 +14,24 @@ jobs:
               with:
                   fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
-            - name: SonarCloud Scan
+            - name: SonarQube Scan
               uses: SonarSource/sonarcloud-github-action@master
               env:
                   GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
                   SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
-
+                  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
               with:
                   args: >
                       -Dsonar.organisation=priyak-sdei
-                      -Dsonar.projectKey=priyak-sdei_smartDataAppRN
+                      -Dsonar.projectKey=smartDataAppRN
+                      -Dsonar.projectName=smartDataAppRN
+                      -Dsonar.projectVersion=1.0.0
+                      -Dsonar.language=js
+                      -Dsonar.sourceEncoding=UTF-8
+                      -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+                      -Dsonar.exclusions=node_modules/**,android/**,ios/**,coverage/**,__tests__/**,**/*.spec.js,**/*.test.js
+                      -Dsonar.login=$SONAR_TOKEN
+                      -Dsonar.host.url=$SONAR_HOST_URL
 
             - name: Use Node.js 20
               uses: actions/setup-node@v4
