@@ -1,0 +1,48 @@
+name: Test EsLinting and Sonar cloud scan when code push in branch
+
+on:
+    pull_request:
+        #push:
+        branches:
+            - 'main'
+jobs:
+    sonarscan-and-lintng:
+        runs-on: ubuntu-latest
+        permissions: read-all
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+
+            - name: SonarCloud Scan
+              uses: SonarSource/sonarcloud-github-action@master
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+                  SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
+
+              with:
+                  args: >
+                      -Dsonar.organisation=priyak-sdei
+                      -Dsonar.projectKey=priyak-sdei_RN_NEW_ARCHITECTURE
+
+            - name: Use Node.js 20
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'yarn'
+
+            - name: Install Node modules
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+            - run: yarn ci
+
+            - name: Linting
+              run: yarn lint
+
+    # Second Job
+    # build-android:
+    #     needs: install-and-test
+    #     uses: ./.github/workflows/build-android.yml
+    #     secrets: inherit
