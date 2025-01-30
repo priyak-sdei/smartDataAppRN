@@ -1,7 +1,8 @@
 name: Test ESLinting and SonarCloud Scan on Code Push
 
 on:
-    push:
+    pull_request:
+        # push:
         branches:
             - 'main'
 
@@ -15,14 +16,14 @@ jobs:
               with:
                   fetch-depth: 0 # Required for accurate Sonar analysis
 
-            - name: Set Up Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-                  cache: 'yarn'
+            # - name: Set Up Node.js
+            #   uses: actions/setup-node@v4
+            #   with:
+            #       node-version: 20
+            #       cache: 'yarn'
 
-            - name: Install Dependencies
-              run: yarn install
+            # - name: Install Dependencies
+            #   run: yarn install
 
             - name: Run ESLint
               run: yarn lint
@@ -45,3 +46,5 @@ jobs:
                       -Dsonar.sourceEncoding=UTF-8
                       -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
                       -Dsonar.exclusions=node_modules/**,android/**,ios/**,coverage/**,__tests__/**,**/*.spec.js,**/*.test.js
+                      -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+                      -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
