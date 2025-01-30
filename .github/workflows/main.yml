@@ -1,8 +1,7 @@
 name: Test ESLinting and SonarCloud Scan on Code Push
 
 on:
-    pull_request:
-        # push:
+    push:
         branches:
             - 'main'
 
