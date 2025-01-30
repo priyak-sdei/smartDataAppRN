@@ -1,55 +1,47 @@
-name: Test EsLinting and Sonar cloud scan when code push in branch
+name: Test ESLinting and SonarCloud Scan on Code Push
+
 on:
     push:
-        #push:
         branches:
             - 'main'
+
 jobs:
-    sonarscan-and-lintng:
+    sonarscan-and-linting:
         runs-on: ubuntu-latest
         permissions: read-all
         steps:
-            - name: Checkout
+            - name: Checkout Repository
               uses: actions/checkout@v4
               with:
-                  fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+                  fetch-depth: 0 # Required for accurate Sonar analysis
 
-            - name: SonarQube Scan
-              uses: SonarSource/sonarcloud-github-action@master
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-                  SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
-                  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-              with:
-                  args: >
-                      -Dsonar.organisation=priyak-sdei
-                      -Dsonar.projectKey=smartDataAppRN
-                      -Dsonar.projectName=smartDataAppRN
-                      -Dsonar.projectVersion=1.0.0
-                      -Dsonar.language=js
-                      -Dsonar.sourceEncoding=UTF-8
-                      -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-                      -Dsonar.exclusions=node_modules/**,android/**,ios/**,coverage/**,__tests__/**,**/*.spec.js,**/*.test.js
-                      -Dsonar.login=$SONAR_TOKEN
-                      -Dsonar.host.url=$SONAR_HOST_URL
-
-            - name: Use Node.js 20
+            - name: Set Up Node.js
               uses: actions/setup-node@v4
               with:
                   node-version: 20
                   cache: 'yarn'
 
-            - name: Install Node modules
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-            - run: yarn ci
+            - name: Install Dependencies
+              run: yarn install
 
-            - name: Linting
+            - name: Run ESLint
               run: yarn lint
 
-    # Second Job
-    # build-android:
-    #     needs: install-and-test
-    #     uses: ./.github/workflows/build-android.yml
-    #     secrets: inherit
+            - name: Run Tests and Generate Coverage
+              run: yarn test --coverage
+
+            - name: SonarQube Scan
+              uses: SonarSource/sonarqube-scan-action@v4.1.0
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+                  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+              with:
+                  args: >
+                      -Dsonar.organization=priyak-sdei
+                      -Dsonar.projectKey=smartDataAppRN
+                      -Dsonar.projectName=smartDataAppRN
+                      -Dsonar.projectVersion=1.0.0
+                      -Dsonar.sourceEncoding=UTF-8
+                      -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+                      -Dsonar.exclusions=node_modules/**,android/**,ios/**,coverage/**,__tests__/**,**/*.spec.js,**/*.test.js
