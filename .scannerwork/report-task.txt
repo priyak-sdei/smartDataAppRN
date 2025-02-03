@@ -2,5 +2,5 @@ projectKey=smartDataAppRN
 serverUrl=http://localhost:9000
 serverVersion=10.4.0.87286
 dashboardUrl=http://localhost:9000/dashboard?id=smartDataAppRN
-ceTaskId=cf3788ee-4c8e-4b20-a945-86f60cad7ff7
-ceTaskUrl=http://localhost:9000/api/ce/task?id=cf3788ee-4c8e-4b20-a945-86f60cad7ff7
+ceTaskId=016b2b80-99f9-4fbf-8a11-ce80b82dd42c
+ceTaskUrl=http://localhost:9000/api/ce/task?id=016b2b80-99f9-4fbf-8a11-ce80b82dd42c

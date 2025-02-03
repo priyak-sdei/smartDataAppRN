@@ -1,54 +1,54 @@
-name: Test ESLinting and SonarCloud Scan on Code Push
+# name: Test ESLinting and SonarCloud Scan on Code Push
 
-on:
-    push:
-        branches:
-            - 'main'
+# on:
+#     push:
+#         branches:
+#             - 'main'
 
-jobs:
-    sonarscan-and-linting:
-        runs-on: ubuntu-latest
-        permissions: read-all
-        steps:
-            - name: Checkout Repository
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0 # Required for accurate Sonar analysis
+# jobs:
+#     sonarscan-and-linting:
+#         runs-on: ubuntu-latest
+#         permissions: read-all
+#         steps:
+#             - name: Checkout Repository
+#               uses: actions/checkout@v4
+#               with:
+#                   fetch-depth: 0 # Required for accurate Sonar analysis
 
-            - name: Set Up Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-                  cache: 'yarn'
+#             - name: Set Up Node.js
+#               uses: actions/setup-node@v4
+#               with:
+#                   node-version: 20
+#                   cache: 'yarn'
 
-            - name: Install Dependencies
-              run: yarn install
+#             - name: Install Dependencies
+#               run: yarn install
 
-            - name: Run ESLint
-              run: yarn lint
+#             - name: Run ESLint
+#               run: yarn lint
 
-            # - name: Run Tests and Generate Coverage
-            #   run: yarn test --coverage
+#             # - name: Run Tests and Generate Coverage
+#             #   run: yarn test --coverage
 
-            - name: Debug SonarQube Connectivity
-              run: |
-                  echo "Testing SonarQube connection..."
-                  curl -v http://172.24.0.65:9000/api/server/version
+#             - name: Debug SonarQube Connectivity
+#               run: |
+#                   echo "Testing SonarQube connection..."
+#                   curl -v http://172.24.0.65:9000/api/server/version
 
-            - name: SonarQube Scan
-              uses: SonarSource/sonarqube-scan-action@v4.1.0
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-                  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-              with:
-                  args: >
-                      -Dsonar.organization=priyak-sdei
-                      -Dsonar.projectKey=smartDataAppRN
-                      -Dsonar.projectName=smartDataAppRN
-                      -Dsonar.projectVersion=1.0.0
-                      -Dsonar.sourceEncoding=UTF-8
-                      -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-                      -Dsonar.exclusions=node_modules/**,android/**,ios/**,coverage/**,__tests__/**,**/*.spec.js,**/*.test.js
-                      -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-                      -Dsonar.host.url=http://172.24.0.65:9000
+#             - name: SonarQube Scan
+#               uses: SonarSource/sonarqube-scan-action@v4.1.0
+#               env:
+#                   GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+#                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#                   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+#               with:
+#                   args: >
+#                       -Dsonar.organization=priyak-sdei
+#                       -Dsonar.projectKey=smartDataAppRN
+#                       -Dsonar.projectName=smartDataAppRN
+#                       -Dsonar.projectVersion=1.0.0
+#                       -Dsonar.sourceEncoding=UTF-8
+#                       -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+#                       -Dsonar.exclusions=node_modules/**,android/**,ios/**,coverage/**,__tests__/**,**/*.spec.js,**/*.test.js
+#                       -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+#                       -Dsonar.host.url=http://172.24.0.65:9000
