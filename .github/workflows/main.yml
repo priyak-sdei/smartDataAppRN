@@ -45,5 +45,5 @@ jobs:
                       -Dsonar.sourceEncoding=UTF-8
                       -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
                       -Dsonar.exclusions=node_modules/**,android/**,ios/**,coverage/**,__tests__/**,**/*.spec.js,**/*.test.js
-                      -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-                      -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+                      -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+                      -Dsonar.host.url=http://172.24.0.65:9000
