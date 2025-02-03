@@ -15,20 +15,21 @@ jobs:
               with:
                   fetch-depth: 0 # Required for accurate Sonar analysis
 
-            # - name: Set Up Node.js
-            #   uses: actions/setup-node@v4
-            #   with:
-            #       node-version: 20
-            #       cache: 'yarn'
+            - name: Set Up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'yarn'
 
-            # - name: Install Dependencies
-            #   run: yarn install
+            - name: Install Dependencies
+              run: yarn install
 
-            # - name: Run ESLint
-            #   run: yarn lint
+            - name: Run ESLint
+              run: yarn lint
 
             - name: Run Tests and Generate Coverage
               run: yarn test --coverage
+
             - name: Wait for SonarQube to be ready
               run: |
                   echo "Checking SonarQube status..."
