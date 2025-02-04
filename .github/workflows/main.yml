@@ -2,7 +2,7 @@ name: Test EsLinting and Sonar cloud scan when code push in branch
 
 on:
     pull_request:
-        #push:
+        push:
         branches:
             - 'main'
 jobs:
@@ -31,7 +31,7 @@ jobs:
               run: yarn lint
 
     # Second Job
-    # build-android:
-    #     needs: install-and-test
-    #     uses: ./.github/workflows/build-android.yml
-    #     secrets: inherit
+    build-android:
+        needs: install-and-test
+        uses: ./.github/workflows/build-android.yml
+        secrets: inherit
