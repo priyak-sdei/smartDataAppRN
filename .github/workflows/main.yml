@@ -2,7 +2,6 @@ name: Test EsLinting and Sonar cloud scan when code push in branch
 
 on:
     push:
-        # push:
         branches:
             - 'main'
 jobs:

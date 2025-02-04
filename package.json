@@ -10,7 +10,8 @@
         "start": "react-native start",
         "test": "jest",
         "sonar_scan": "sonarqube-scanner",
-        "prepare": "husky"
+        "prepare": "husky",
+        "ci": "yarn install && yarn lint && yarn test && yarn sonar_scan"
     },
     "lint-staged": {
         "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
