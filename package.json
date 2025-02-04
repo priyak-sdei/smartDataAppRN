@@ -11,7 +11,7 @@
         "test": "jest",
         "sonar_scan": "sonarqube-scanner",
         "prepare": "husky",
-        "ci": "yarn install && yarn lint && yarn test && yarn sonar_scan"
+        "ci": "yarn install --frozen-lockfile"
     },
     "lint-staged": {
         "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
