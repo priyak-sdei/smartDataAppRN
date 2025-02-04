@@ -1,54 +1,37 @@
-# name: Test ESLinting and SonarCloud Scan on Code Push
+name: Test EsLinting and Sonar cloud scan when code push in branch
 
-# on:
-#     push:
-#         branches:
-#             - 'main'
+on:
+    pull_request:
+        #push:
+        branches:
+            - 'main'
+jobs:
+    sonarscan-and-lintng:
+        runs-on: ubuntu-latest
+        permissions: read-all
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
-# jobs:
-#     sonarscan-and-linting:
-#         runs-on: ubuntu-latest
-#         permissions: read-all
-#         steps:
-#             - name: Checkout Repository
-#               uses: actions/checkout@v4
-#               with:
-#                   fetch-depth: 0 # Required for accurate Sonar analysis
+            - name: Use Node.js 20
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'yarn'
 
-#             - name: Set Up Node.js
-#               uses: actions/setup-node@v4
-#               with:
-#                   node-version: 20
-#                   cache: 'yarn'
+            - name: Install Node modules
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+            - run: yarn ci
 
-#             - name: Install Dependencies
-#               run: yarn install
+            - name: Linting
+              run: yarn lint
 
-#             - name: Run ESLint
-#               run: yarn lint
-
-#             # - name: Run Tests and Generate Coverage
-#             #   run: yarn test --coverage
-
-#             - name: Debug SonarQube Connectivity
-#               run: |
-#                   echo "Testing SonarQube connection..."
-#                   curl -v http://172.24.0.65:9000/api/server/version
-
-#             - name: SonarQube Scan
-#               uses: SonarSource/sonarqube-scan-action@v4.1.0
-#               env:
-#                   GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-#                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#                   SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-#               with:
-#                   args: >
-#                       -Dsonar.organization=priyak-sdei
-#                       -Dsonar.projectKey=smartDataAppRN
-#                       -Dsonar.projectName=smartDataAppRN
-#                       -Dsonar.projectVersion=1.0.0
-#                       -Dsonar.sourceEncoding=UTF-8
-#                       -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-#                       -Dsonar.exclusions=node_modules/**,android/**,ios/**,coverage/**,__tests__/**,**/*.spec.js,**/*.test.js
-#                       -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-#                       -Dsonar.host.url=http://172.24.0.65:9000
+    # Second Job
+    # build-android:
+    #     needs: install-and-test
+    #     uses: ./.github/workflows/build-android.yml
+    #     secrets: inherit
