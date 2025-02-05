@@ -9,7 +9,7 @@ on:
                 default: 'release'
         secrets:
             APPLE_DEVELOPER_TEAM_ID:
-                required: true
+                required: false
             APPLE_SIGNING_CERTIFICATE:
                 required: true
             APPLE_SIGNING_CERT_PASSWORD:
