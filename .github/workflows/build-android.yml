@@ -62,6 +62,7 @@ jobs:
                   signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
                   alias: ${{ secrets.ANDROID_KEY_ALIAS }}
                   keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+                  keyStoreType: PKCS12
                   # keyPassword: ${{ secrets.KEY_PASSWORD }}
 
             # Upload to Artifact # Artifact Testing
