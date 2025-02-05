@@ -54,20 +54,19 @@ jobs:
 
             - run: pwd
 
-            # - name: Decode Keystore
-            #   run: |
-            #       echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > android/app/RNArchitecture.keystore
+            - name: Decode Keystore
+              run: |
+                  echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > android/app/RNArchitecture.keystore
 
             - name: Sign app APK
               uses: r0adkll/sign-android-release@v1
               id: sign_app
               with:
                   releaseDirectory: android/app/build/outputs/bundle/release
-                  signingKeyPath: android/app/RNArchitecture.jks
-                  # signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
+                  signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
                   alias: ${{ secrets.ANDROID_KEY_ALIAS }}
                   keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-                  # keyPassword: ${{ secrets.KEY_PASSWORD }}
+                  keyPassword: ${{ secrets.KEY_PASSWORD }}
 
             # Upload to Artifact # Artifact Testing
             - name: Upload Artifact
