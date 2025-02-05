@@ -48,9 +48,11 @@ jobs:
             - name: Make Gradlew Executable
               run: cd android && chmod +x ./gradlew
 
-            - name: Build Android
+            - name: Build Android AAB & APK
               run: |
-                  cd android && ./gradlew bundleRelease --no-daemon
+                  cd android
+                  ./gradlew bundleRelease --no-daemon
+                  ./gradlew assembleRelease --no-daemon
 
             - run: pwd
 
@@ -69,8 +71,14 @@ jobs:
                   keyPassword: ${{ secrets.KEY_PASSWORD }}
 
             # Upload to Artifact # Artifact Testing
-            - name: Upload Artifact
+            - name: Upload AAB Artifact
               uses: actions/upload-artifact@v4
               with:
                   name: Timely.aab
                   path: ${{ steps.sign_app.outputs.signedReleaseFile }}
+
+            - name: Upload APK Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Timely.apk
+                  path: android/app/build/outputs/apk/release/app-release.apk
