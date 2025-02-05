@@ -1,7 +1,7 @@
 name: Test EsLinting and Sonar cloud scan when code push in branch
 
 on:
-    push:
+    merge:
         # push:
         branches:
             - 'main'
