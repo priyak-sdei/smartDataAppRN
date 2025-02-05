@@ -95,7 +95,7 @@ function App(): React.JSX.Element {
 
 const styles = StyleSheet.create({
     highlight: {
-        fontWeight: '700',
+        fontWeight: '800',
     },
     sectionContainer: {
         marginTop: 32,
