@@ -6,7 +6,7 @@ on:
         branches:
             - 'main'
 jobs:
-    sonarscan-and-lintng:
+    sonarscan-and-linting:
         runs-on: ubuntu-latest
         permissions: read-all
         steps:
