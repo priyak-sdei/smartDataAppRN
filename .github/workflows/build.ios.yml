@@ -1,0 +1,81 @@
+name: 'iOS Build'
+
+on:
+    workflow_call:
+        inputs:
+            environment:
+                required: false
+                type: string
+                default: 'release'
+        secrets:
+            APPLE_DEVELOPER_TEAM_ID:
+                required: true
+            APPLE_SIGNING_CERTIFICATE:
+                required: true
+            APPLE_SIGNING_CERT_PASSWORD:
+                required: true
+            APPLE_PROVISIONING_PROFILE:
+                required: true
+
+jobs:
+    build-ios:
+        runs-on: macos-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Use Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  cache: 'yarn'
+
+            - name: Install Node modules
+              run: yarn ci
+
+            - name: Install CocoaPods
+              run: |
+                  cd ios
+                  pod install --silent
+
+            - name: Set up Xcode
+              run: sudo xcode-select -switch /Applications/Xcode.app
+
+            - name: Create Keychain and Import Certificate
+              run: |
+                  security create-keychain -p "" build.keychain
+                  security default-keychain -s build.keychain
+                  security unlock-keychain -p "" build.keychain
+                  echo "${{ secrets.APPLE_SIGNING_CERTIFICATE }}" | base64 --decode > signing_certificate.p12
+                  security import signing_certificate.p12 -k build.keychain -P "${{ secrets.APPLE_SIGNING_CERT_PASSWORD }}" -T /usr/bin/codesign
+                  security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "" build.keychain
+
+            - name: Install Provisioning Profile
+              run: |
+                  echo "${{ secrets.APPLE_PROVISIONING_PROFILE }}" | base64 --decode > ios/app.mobileprovision
+                  mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+                  cp ios/app.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+
+            - name: Build iOS Archive
+              run: |
+                  cd ios
+                  xcodebuild -workspace YourApp.xcworkspace \
+                             -scheme YourApp \
+                             -configuration Release \
+                             -archivePath build/YourApp.xcarchive \
+                             archive
+
+            - name: Export IPA
+              run: |
+                  cd ios
+                  xcodebuild -exportArchive \
+                             -archivePath build/YourApp.xcarchive \
+                             -exportOptionsPlist exportOptions.plist \
+                             -exportPath build/ \
+                             -allowProvisioningUpdates
+
+            - name: Upload IPA Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Timely.ipa
+                  path: ios/build/YourApp.ipa

@@ -34,3 +34,8 @@ jobs:
     build-android:
         uses: ./.github/workflows/build-android.yml
         secrets: inherit
+
+    # Third Job
+    build-ios:
+        uses: ./.github/workflows/build-ios.yml
+        secrets: inherit
