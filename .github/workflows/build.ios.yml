@@ -59,17 +59,17 @@ jobs:
             - name: Build iOS Archive
               run: |
                   cd ios
-                  xcodebuild -workspace YourApp.xcworkspace \
-                             -scheme YourApp \
+                  xcodebuild -workspace smartDataAppRN.xcworkspace \
+                             -scheme smartDataAppRN \
                              -configuration Release \
-                             -archivePath build/YourApp.xcarchive \
+                             -archivePath build/smartDataAppRN.xcarchive \
                              archive
 
             - name: Export IPA
               run: |
                   cd ios
                   xcodebuild -exportArchive \
-                             -archivePath build/YourApp.xcarchive \
+                             -archivePath build/smartDataAppRN.xcarchive \
                              -exportOptionsPlist exportOptions.plist \
                              -exportPath build/ \
                              -allowProvisioningUpdates
@@ -78,4 +78,4 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                   name: Timely.ipa
-                  path: ios/build/YourApp.ipa
+                  path: ios/build/smartDataAppRN.ipa

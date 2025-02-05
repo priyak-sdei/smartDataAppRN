@@ -1,10 +1,11 @@
 name: Test EsLinting and Sonar cloud scan when code push in branch
 
 on:
-    merge:
-        # push:
+    pull_request:
+        types:
+            - closed
         branches:
-            - 'main'
+            - main
 jobs:
     sonarscan-and-linting:
         runs-on: ubuntu-latest
