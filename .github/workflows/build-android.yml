@@ -63,8 +63,8 @@ jobs:
               id: sign_app
               with:
                   releaseDirectory: android/app/build/outputs/bundle/release
-                  # signingKeyPath: android/app/RNArchitecture.keystore
-                  signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
+                  signingKeyPath: android/app/RNArchitecture.jks
+                  # signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
                   alias: ${{ secrets.ANDROID_KEY_ALIAS }}
                   keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
                   # keyPassword: ${{ secrets.KEY_PASSWORD }}
