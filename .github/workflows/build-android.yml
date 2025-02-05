@@ -54,12 +54,16 @@ jobs:
 
             - run: pwd
 
+            - name: Decode Keystore
+              run: |
+                  echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 --decode > android/app/RNArchitecture.keystore
+
             - name: Sign app APK
               uses: r0adkll/sign-android-release@v1
               id: sign_app
               with:
                   releaseDirectory: android/app/build/outputs/bundle/release
-                  signingKeyBase64: ${{ secrets.ANDROID_KEYSTORE }}
+                  signingKeyPath: android/app/RNArchitecture.keystore
                   alias: ${{ secrets.ANDROID_KEY_ALIAS }}
                   keyStorePassword: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
                   keyStoreType: PKCS12
