@@ -31,9 +31,9 @@ jobs:
               run: yarn lint
 
     # Second Job
-    build-android:
-        uses: ./.github/workflows/build-android.yml
-        secrets: inherit
+    # build-android:
+    #     uses: ./.github/workflows/build-android.yml
+    #     secrets: inherit
 
     # Third Job
     build-ios:
