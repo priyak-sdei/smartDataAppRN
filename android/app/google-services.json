@@ -1,0 +1,29 @@
+{
+    "project_info": {
+        "project_number": "749712540931",
+        "project_id": "rnbaseproject-ef8d3",
+        "storage_bucket": "rnbaseproject-ef8d3.firebasestorage.app"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:749712540931:android:6b034645935ee844ed5536",
+                "android_client_info": {
+                    "package_name": "com.smartdataapprn"
+                }
+            },
+            "oauth_client": [],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyC0uFVerJn7zpmS5CSKIEXJmZCkoqHJIHQ"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": []
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}

@@ -20,8 +20,13 @@
         ]
     },
     "dependencies": {
+        "@react-native-firebase/analytics": "^21.7.1",
+        "@react-native-firebase/app": "^21.7.1",
+        "@react-native-firebase/crashlytics": "^21.7.1",
+        "add": "^2.0.6",
         "react": "18.3.1",
-        "react-native": "0.76.6"
+        "react-native": "0.76.6",
+        "yarn": "^1.22.22"
     },
     "devDependencies": {
         "@babel/core": "^7.25.2",

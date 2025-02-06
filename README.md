@@ -85,8 +85,8 @@ This project follows **best practices** to ensure high-quality, maintainable, an
 
 ### ✅ State Management & Performance Optimization
 
-- **Redux / Zustand / Recoil** – Predictable state management.
-- **React Query / SWR** – Efficient data fetching and caching.
+- **Redux** – Predictable state management.
+- **React Query** – Efficient data fetching and caching.
 - **Reanimated / Gesture Handler** – Smooth animations and gesture support.
 - **Hermes Engine** – Optimized JS engine for better performance.
 - **Flipper Integration** – Debugging and performance monitoring tool.
@@ -94,13 +94,12 @@ This project follows **best practices** to ensure high-quality, maintainable, an
 ### ✅ Security & Authentication
 
 - **Secure Storage (Keychain / AsyncStorage)** – Secure local data storage.
-- **JWT / OAuth Integration** – Secure authentication flow.
 - **Code Obfuscation & ProGuard** – Protect source code from reverse engineering.
 
 ### ✅ Monitoring & Analytics
 
-- **Sentry / Firebase Crashlytics** – Monitor app crashes and errors.
-- **Firebase Analytics / Mixpanel** – Track user behavior and app performance.
+- **Firebase Crashlytics** – Monitor app crashes and errors.
+- **Firebase Analytics** – Track user behavior and app performance.
 
 ### ✅ Testing & Debugging
 
