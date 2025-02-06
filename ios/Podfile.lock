@@ -1693,14 +1693,35 @@ PODS:
     - React-logger (= 0.76.6)
     - React-perflogger (= 0.76.6)
     - React-utils (= 0.76.6)
-  - RNFBAnalytics (21.7.1):
+  - RNCAsyncStorage (2.1.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNFBAnalytics (21.7.2):
     - Firebase/Analytics (= 11.7.0)
     - React-Core
     - RNFBApp
-  - RNFBApp (21.7.1):
+  - RNFBApp (21.7.2):
     - Firebase/CoreOnly (= 11.7.0)
     - React-Core
-  - RNFBCrashlytics (21.7.1):
+  - RNFBCrashlytics (21.7.2):
     - Firebase/Crashlytics (= 11.7.0)
     - FirebaseCoreExtension
     - React-Core
@@ -1819,6 +1840,7 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
@@ -1972,6 +1994,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNFBAnalytics:
     :path: "../node_modules/@react-native-firebase/analytics"
   RNFBApp:
@@ -2062,9 +2086,10 @@ SPEC CHECKSUMS:
   React-utils: 313aee0d3b79d0f43ddc9e8aebf789b56469aff8
   ReactCodegen: e61f5cbdd7d1c7144f3f9e07bc5f9fcbe7a71ccc
   ReactCommon: 407be731d21caa89dfb2f648868865b76c84d2d2
-  RNFBAnalytics: 0af62a86dd2026d91929c2ae157ff14fa9588da0
-  RNFBApp: 67229e8085ab427c935defad2a6c3fc57c7f656d
-  RNFBCrashlytics: 5fa31a9936f64be7bd4efbaf05ec64f006ebd862
+  RNCAsyncStorage: a4fe69222ddd04df40059f1ad088f068ce8fd033
+  RNFBAnalytics: 38a750042b5cf988c61b3e33d1491c182da4b536
+  RNFBApp: a5395f4df3ea5d19697bdc99f5a0400903e5fff6
+  RNFBCrashlytics: 539d7399b2383a33b9f554fe3805cb1fc433e0f0
   RNScreens: 3d9895696d5716e9a780237a9c2589c7aa3d199f
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: c597d2c0803c51f27569fb69f05eeb76646c0074
