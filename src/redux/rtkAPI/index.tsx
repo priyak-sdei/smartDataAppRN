@@ -6,7 +6,7 @@ const createBaseQuery = () => {
         baseUrl: 'http://54.190.192.105:9185/angel/',
         timeout: 10000,
         prepareHeaders: async (headers, {getState, endpoint}) => {
-            const state = getState() as RootState;
+            const _state = getState() as RootState;
             // const token = (state as any)?.auth?.user?.token;
             // console.log('tokennnnn=====>>', token);
             // if (token) {
