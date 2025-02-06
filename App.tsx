@@ -16,7 +16,6 @@ import {
     useColorScheme,
     View,
 } from 'react-native';
-
 import {
     Colors,
     DebugInstructions,
@@ -24,14 +23,12 @@ import {
     LearnMoreLinks,
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-
 type SectionProps = PropsWithChildren<{
     title: string;
 }>;
 
 function Section({children, title}: SectionProps): React.JSX.Element {
     const isDarkMode = useColorScheme() === 'dark';
-    console.log('newww');
     return (
         <View style={styles.sectionContainer}>
             <Text
@@ -41,7 +38,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
                         color: isDarkMode ? Colors.white : Colors.black,
                     },
                 ]}>
-                {title}
+                {title}fhdf
             </Text>
             <Text
                 style={[

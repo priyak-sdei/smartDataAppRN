@@ -20,7 +20,7 @@
         }
     },
     "plugins": ["@typescript-eslint", "react", "react-native"],
-    "ignorePatterns": ["metro.config.js"],
+    "ignorePatterns": ["metro.config.js", "README.md"],
     "rules": {
         // General ESLint rules
 
