@@ -43,6 +43,12 @@
 
         //Stylistic Issues:
         "quotes": 0, // Enforces the use of single or double quotes consistently.,
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+
+        // Ignore unused variables prefixed with "_"
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {"argsIgnorePattern": "^_", "varsIgnorePattern": "^_"}
+        ]
     }
 }
