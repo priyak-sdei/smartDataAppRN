@@ -125,11 +125,6 @@ This project follows **best practices** to ensure high-quality, maintainable, an
 - **Deep Linking & Universal Links** – Handle external URL navigation.
 - **Dynamic Routing** – Parameter-based navigation.
 
-### ✅ Push Notifications & Background Services
-
-- **Firebase Cloud Messaging (FCM) / OneSignal** – Push notifications.
-- **Background Jobs (WorkManager / BackgroundFetch)** – Efficient background tasks.
-
 ### ✅ Performance Optimization
 
 - **Lazy Loading & Code Splitting** – Reduce initial app load time.

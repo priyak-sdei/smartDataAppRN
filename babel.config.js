@@ -1,20 +1,21 @@
 module.exports = {
     presets: ['module:@react-native/babel-preset'],
     plugins: [
-        // 'react-native-reanimated/plugin',
+        'react-native-reanimated/plugin',
         [
             'module-resolver',
             {
-                root: ['./'],
+                root: ['.'],
                 extensions: [
-                    '.js',
-                    '.jsx',
+                    '.ios.ts',
+                    '.android.ts',
                     '.ts',
-                    '.tsx',
-                    '.android.js',
-                    '.android.tsx',
-                    '.ios.js',
                     '.ios.tsx',
+                    '.android.tsx',
+                    '.tsx',
+                    '.jsx',
+                    '.js',
+                    '.json',
                 ],
                 alias: {
                     // '@components': './src/components',
@@ -24,6 +25,7 @@ module.exports = {
                     // '@assets': './src/assets',
                     // '@config': './src/config',
                     '@redux': './src/redux',
+                    '@screens': './src/screens',
                     // '@constants': './src/constants',
                     // Add more aliases as needed
                 },

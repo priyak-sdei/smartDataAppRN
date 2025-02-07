@@ -4,7 +4,6 @@ import AuthStackNavigator from './AuthStack';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Tabs from './Tabs';
 import {RootStackParamList} from './AppParamList';
-
 export const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
 export function navigate<T extends keyof RootStackParamList>(
