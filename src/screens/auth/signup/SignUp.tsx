@@ -1,26 +1,33 @@
+import {increment} from '@redux/slices/counterSlice';
+import {useAppDispatch, useAppSelector} from '@redux/store';
 import React from 'react';
 import {Button, Text, View} from 'react-native';
 import {AuthScreenProps} from 'src/navigators/AppParamList';
-import {navigate, resetRoot} from 'src/navigators/navigationUtilities';
+import {resetRoot} from 'src/navigators/navigationUtilities';
+import {save} from 'src/utils/storage';
 
 const SignUp: React.FC<AuthScreenProps<'SignUp'>> = props => {
-    console.log(props, 'props.....');
+    const dispatch = useAppDispatch();
+    const data = useAppSelector(state => state?.counter);
+    console.log('data in signnup', data);
+
+    const handleSignUpPress = async () => {
+        resetRoot({
+            index: 0,
+            routes: [{name: 'Tabs', params: {screen: 'Profile'}}],
+        });
+        const body = {
+            token: 'adhajksdlfkgsjfagsjfksdgafklsgdfakdsgfdksdfgdfgdfgdfgdf',
+        };
+
+        save('userData', JSON.stringify(body));
+        dispatch(increment());
+    };
+
     return (
         <View>
             <Text>SignUp</Text>
-            <Button
-                onPress={
-                    () => {
-                        resetRoot({
-                            index: 0,
-                            routes: [{name: 'Tabs', params: {screen: 'Profile'}}],
-                        });
-                    }
-
-                    //props.navigation.reset({index: 0, routes: [{name: 'Tabs'}]})
-                }
-                title="Sign Up page"
-            />
+            <Button onPress={handleSignUpPress} title="Sign Up page" />
         </View>
     );
 };

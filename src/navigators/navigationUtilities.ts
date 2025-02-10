@@ -1,10 +1,4 @@
-import {useState, useEffect, useRef} from 'react';
-import {BackHandler, Linking, Platform} from 'react-native';
-import {
-    NavigationState,
-    PartialState,
-    createNavigationContainerRef,
-} from '@react-navigation/native';
+import {createNavigationContainerRef} from '@react-navigation/native';
 import {RootStackParamList} from './AppParamList';
 
 /**
