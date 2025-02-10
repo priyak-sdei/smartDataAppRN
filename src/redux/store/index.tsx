@@ -5,10 +5,11 @@ import {persistReducer, persistStore} from 'redux-persist';
 import {PersistPartial} from 'redux-persist/es/persistReducer';
 import {clientApi} from '../rtkAPI/clientAPI';
 import counterSlice from '../slices/counterSlice';
+import {reduxPersistStorage} from '@redux/mmkv/MMKVStorage';
 
 const persistConfig = {
     key: 'root',
-    storage: AsyncStorage,
+    storage: reduxPersistStorage,
     //   whitelist: ['auth', 'config'],
 };
 
