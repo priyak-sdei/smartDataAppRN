@@ -6,7 +6,7 @@ import {
     createApi,
 } from '@reduxjs/toolkit/query/react';
 
-import {EndpointBuilder} from '@reduxjs/toolkit/query';
+import {EndpointBuilder, fetchBaseQuery} from '@reduxjs/toolkit/query';
 import {createBaseQuery} from '.';
 
 export type RTKBuilderType = EndpointBuilder<
@@ -17,7 +17,8 @@ export type RTKBuilderType = EndpointBuilder<
 
 export const clientApi = createApi({
     reducerPath: 'api',
-    baseQuery: createBaseQuery(),
+    // baseQuery: createBaseQuery(),
+    baseQuery: fetchBaseQuery({baseUrl: 'http://54.190.192.105:9185/angel/'}),
     endpoints: () => ({}),
     keepUnusedDataFor: 600,
     refetchOnMountOrArgChange: 5,

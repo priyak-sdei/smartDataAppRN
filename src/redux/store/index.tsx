@@ -1,14 +1,15 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {combineReducers, configureStore, Middleware} from '@reduxjs/toolkit';
 import {setupListeners} from '@reduxjs/toolkit/query';
 import {persistReducer, persistStore} from 'redux-persist';
 import {PersistPartial} from 'redux-persist/es/persistReducer';
 import {clientApi} from '../rtkAPI/clientAPI';
 import counterSlice from '../slices/counterSlice';
+import {reduxPersistStorage} from 'src/utils/storage';
+import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
 
 const persistConfig = {
     key: 'root',
-    storage: AsyncStorage,
+    storage: reduxPersistStorage,
     //   whitelist: ['auth', 'config'],
 };
 
@@ -37,3 +38,6 @@ const persistor = persistStore(store);
 export {persistor, store};
 export type RootState = ReturnType<typeof rootReducer> & PersistPartial;
 export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

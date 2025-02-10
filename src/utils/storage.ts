@@ -1,5 +1,10 @@
 import {MMKV} from 'react-native-mmkv';
-export const storage = new MMKV();
+
+export const storage = new MMKV({
+    id: 'RNArchitectureStorage',
+    encryptionKey: '12345',
+    // mode:
+});
 
 /**
  * Loads a string from storage.
@@ -83,3 +88,18 @@ export function clear(): void {
         console.log('error');
     }
 }
+
+export const reduxPersistStorage = {
+    setItem: (key, value) => {
+        storage.set(key, value);
+        return Promise.resolve(true);
+    },
+    getItem: key => {
+        const value = storage.getString(key);
+        return Promise.resolve(value);
+    },
+    removeItem: key => {
+        storage.delete(key);
+        return Promise.resolve();
+    },
+};
