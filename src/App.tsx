@@ -4,7 +4,7 @@
  *
  * @format
  */
-
+import './devtools/ReactotronConfig';
 import React from 'react';
 import {KeyboardProvider} from 'react-native-keyboard-controller';
 import AppNavigator from './navigators/AppNavigator';

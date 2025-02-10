@@ -6,6 +6,7 @@ import {clientApi} from '../rtkAPI/clientAPI';
 import counterSlice from '../slices/counterSlice';
 import {reduxPersistStorage} from 'src/utils/storage';
 import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
+import {Reactotron} from 'src/devtools/ReactotronClient';
 
 const persistConfig = {
     key: 'root',
@@ -29,6 +30,8 @@ const store = configureStore({
             serializableCheck: false,
             immutableCheck: false,
         }).concat(middleware),
+    enhancers: getDefaultEnhancers =>
+        __DEV__ ? getDefaultEnhancers().concat(Reactotron.createEnhancer()) : getDefaultEnhancers(),
 });
 
 setupListeners(store.dispatch);

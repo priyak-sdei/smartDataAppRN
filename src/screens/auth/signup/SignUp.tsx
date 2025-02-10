@@ -9,7 +9,6 @@ import {save} from 'src/utils/storage';
 const SignUp: React.FC<AuthScreenProps<'SignUp'>> = props => {
     const dispatch = useAppDispatch();
     const data = useAppSelector(state => state?.counter);
-    console.log('data in signnup', data);
 
     const handleSignUpPress = async () => {
         resetRoot({

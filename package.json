@@ -39,6 +39,9 @@
         "react-native-safe-area-context": "^5.2.0",
         "react-native-screens": "^4.6.0",
         "react-redux": "^9.2.0",
+        "reactotron-react-native": "^5.1.12",
+        "reactotron-react-native-mmkv": "^0.2.8",
+        "reactotron-redux": "^3.1.11",
         "redux-logger": "^3.0.6",
         "redux-persist": "^6.0.0",
         "yarn": "^1.22.22"
