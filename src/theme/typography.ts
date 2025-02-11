@@ -1,11 +1,11 @@
 export const Fonts = {
     black: {fontFamily: 'Poppins-Black'},
-    bold: {fontFamily: 'Poppins-Bold'}, // 700
-    extraBold: {fontFamily: 'Poppins-ExtraBold'}, // 700
+    bold: {fontFamily: 'Poppins-Bold'},
+    extraBold: {fontFamily: 'Poppins-ExtraBold'},
     extraLight: {fontFamily: 'Poppins-ExtraLight'},
     light: {fontFamily: 'Poppins-Light'},
-    semibold: {fontFamily: 'Poppins-SemiBold'}, // 600
-    medium: {fontFamily: 'Poppins-Medium'}, // 500
-    regular: {fontFamily: 'Poppins-Regular'}, // 400
+    semibold: {fontFamily: 'Poppins-SemiBold'},
+    medium: {fontFamily: 'Poppins-Medium'},
+    regular: {fontFamily: 'Poppins-Regular'},
     thin: {fontFamily: 'Poppins-Thin'},
 };
