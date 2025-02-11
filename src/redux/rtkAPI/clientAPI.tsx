@@ -18,7 +18,7 @@ export type RTKBuilderType = EndpointBuilder<
 export const clientApi = createApi({
     reducerPath: 'api',
     // baseQuery: createBaseQuery(),
-    baseQuery: fetchBaseQuery({baseUrl: 'http://54.190.192.105:9185/angel/'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'https://sdeiaiml.com:7004/'}),
     endpoints: () => ({}),
     keepUnusedDataFor: 600,
     refetchOnMountOrArgChange: 5,

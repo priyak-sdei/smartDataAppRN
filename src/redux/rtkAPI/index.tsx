@@ -3,7 +3,7 @@ import {RootState} from '../store';
 
 const createBaseQuery = () => {
     return fetchBaseQuery({
-        baseUrl: 'http://54.190.192.105:9185/angel/',
+        baseUrl: 'https://sdeiaiml.com:7004/',
         timeout: 10000,
         prepareHeaders: async (headers, {getState, endpoint}) => {
             const _state = getState() as RootState;
