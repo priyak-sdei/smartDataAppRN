@@ -13,9 +13,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		31D64D34D742E83B37CD6087 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		510005F22D548A1B0026E570 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 510005F12D548A1B0026E570 /* GoogleService-Info.plist */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		C1972D630D5758B075662454 /* Pods_smartDataAppRN_smartDataAppRNTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7BBD4B5D17A28265471FD47 /* Pods_smartDataAppRN_smartDataAppRNTests.framework */; };
+		EA3AEC182D5B1C1C0087CFB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA3AEC172D5B1C1C0087CFB8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +40,13 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = smartDataAppRN/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = smartDataAppRN/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-smartDataAppRN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartDataAppRN.debug.xcconfig"; path = "Target Support Files/Pods-smartDataAppRN/Pods-smartDataAppRN.debug.xcconfig"; sourceTree = "<group>"; };
-		510005F12D548A1B0026E570 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-smartDataAppRN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartDataAppRN.release.xcconfig"; path = "Target Support Files/Pods-smartDataAppRN/Pods-smartDataAppRN.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-smartDataAppRN-smartDataAppRNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartDataAppRN-smartDataAppRNTests.debug.xcconfig"; path = "Target Support Files/Pods-smartDataAppRN-smartDataAppRNTests/Pods-smartDataAppRN-smartDataAppRNTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = smartDataAppRN/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-smartDataAppRN-smartDataAppRNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-smartDataAppRN-smartDataAppRNTests.release.xcconfig"; path = "Target Support Files/Pods-smartDataAppRN-smartDataAppRNTests/Pods-smartDataAppRN-smartDataAppRNTests.release.xcconfig"; sourceTree = "<group>"; };
 		B7BBD4B5D17A28265471FD47 /* Pods_smartDataAppRN_smartDataAppRNTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartDataAppRN_smartDataAppRNTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C464BAE1F5B65203DC20DB7C /* Pods_smartDataAppRN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_smartDataAppRN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA3AEC172D5B1C1C0087CFB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -97,6 +97,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				EA3AEC172D5B1C1C0087CFB8 /* GoogleService-Info.plist */,
 			);
 			name = smartDataAppRN;
 			sourceTree = "<group>";
@@ -121,7 +122,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				510005F12D548A1B0026E570 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* smartDataAppRN */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* smartDataAppRNTests */,
@@ -250,7 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				510005F22D548A1B0026E570 /* GoogleService-Info.plist in Resources */,
+				EA3AEC182D5B1C1C0087CFB8 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				31D64D34D742E83B37CD6087 /* PrivacyInfo.xcprivacy in Resources */,
 			);
@@ -635,10 +635,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -718,10 +715,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
