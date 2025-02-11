@@ -17,6 +17,7 @@ export const NAVIGATION = {} as const;
 export type AuthStackParamList = {
     Login: object | undefined;
     SignUp: {userId: number};
+    Calender: object | undefined;
 };
 
 export type RootStackParamList = {
