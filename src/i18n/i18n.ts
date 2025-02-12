@@ -1,10 +1,10 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
-import en, {Translations} from './locales/en';
+import en from './locales/en';
 import * as Localization from 'react-native-localize';
 import {I18nManager} from 'react-native';
 
-const fallbackLocale = 'en-US';
+const fallbackLocale = 'en';
 const systemLocales = Localization.getLocales();
 
 const resources = {
@@ -40,10 +40,8 @@ export const initI18n = async () => {
 
     await i18n.init({
         resources,
-        lng: 'en',
-        fallbackLng: 'en',
-        // lng: locale?.languageTag ?? fallbackLocale,
-        // fallbackLng: fallbackLocale,
+        lng: locale?.languageCode ?? fallbackLocale,
+        fallbackLng: fallbackLocale,
         interpolation: {
             escapeValue: false,
         },

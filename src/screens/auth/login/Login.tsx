@@ -4,6 +4,7 @@ import {BottomSheetComponent, useBottomSheet} from 'src/components/common/action
 import {LoginScreenProps} from 'src/navigators/AppParamList';
 import {Fonts} from 'src/theme/typography';
 import {Text} from 'src/components';
+import {ThemedStyle} from 'src/theme';
 const Login: React.FC<LoginScreenProps> = ({navigation}) => {
     const {ref: helloSheetRef, open: openSheet, close: closeSheet} = useBottomSheet();
 
@@ -13,11 +14,12 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
 
     return (
         <View>
-            <Text style={styles.loginTextStyle} tx="common.Hi" txOptions={{name: 'Priya11'}} />
             <Button
                 onPress={() => navigation.reset({index: 0, routes: [{name: 'Tabs'}]})}
                 title="Tabs"
             />
+            <Text style={styles.loginTextStyle} tx="common.Hi" txOptions={{name: 'Priya11'}} />
+
             <Button onPress={() => navigation.navigate('SignUp', {userId: 5})} title="SignUp" />
             <Button
                 onPress={() => {

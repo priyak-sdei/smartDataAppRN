@@ -5,8 +5,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Tabs from './Tabs';
 import {RootStackParamList} from './AppParamList';
 import {navigationRef} from './navigationUtilities';
-
+import DarkTheme from 'src/theme/DarkTheme';
+import DefaultTheme from 'src/theme/DefaultTheme';
+import {useState} from 'react';
 export default function AppNavigator() {
+    const [isDarkTheme, setIsDarkTheme] = useState(false);
     const Stack = createNativeStackNavigator();
     return (
         <NavigationContainer ref={navigationRef}>

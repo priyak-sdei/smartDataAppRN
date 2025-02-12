@@ -6,6 +6,7 @@
  */
 import './devtools/ReactotronConfig';
 import React, {useEffect} from 'react';
+
 import {initI18n} from './i18n';
 import {KeyboardProvider} from 'react-native-keyboard-controller';
 import AppNavigator from './navigators/AppNavigator';
