@@ -63,8 +63,10 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
                     },
                 },
             );
+            // const response = await axios.get('https://dummyjson.com/test');
 
             console.log('Upload Success:', response.data);
+            // console.log('response', response?.data);
             if (response?.data) {
                 setIsLoading(false);
             }
