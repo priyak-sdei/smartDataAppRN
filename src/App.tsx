@@ -17,7 +17,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {initialWindowMetrics, SafeAreaProvider} from 'react-native-safe-area-context';
 function App(): React.JSX.Element {
     useEffect(() => {
-        initI18n().then(() => console.log('translaion init'));
+        initI18n().then(() => {});
     }, []);
 
     return (

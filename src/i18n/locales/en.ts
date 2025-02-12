@@ -1,7 +1,6 @@
 const en = {
-    name: 'Hello Priya',
     common: {
-        Hi: 'Hi Priya',
+        Hi: 'Hello, {{name}}!',
         Welcome: 'Welcome',
         ok: 'OK!',
         cancel: 'Cancel',

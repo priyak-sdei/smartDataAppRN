@@ -1,13 +1,10 @@
 import React from 'react';
-import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Button, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {BottomSheetComponent, useBottomSheet} from 'src/components/common/actionSheet/ActionSheet';
 import {LoginScreenProps} from 'src/navigators/AppParamList';
 import {Fonts} from 'src/theme/typography';
-import {isRTL, translate, TxKeyPath} from 'src/i18n';
+import {Text} from 'src/components';
 const Login: React.FC<LoginScreenProps> = ({navigation}) => {
-    const i18nText = translate('name');
-    const content = i18nText;
-    console.log(i18nText, 'i18nText......');
     const {ref: helloSheetRef, open: openSheet, close: closeSheet} = useBottomSheet();
 
     const handleClose = () => {
@@ -16,7 +13,7 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
 
     return (
         <View>
-            <Text style={styles.loginTextStyle}>Login {content}</Text>
+            <Text style={styles.loginTextStyle} tx="common.Hi" txOptions={{name: 'Priya11'}} />
             <Button
                 onPress={() => navigation.reset({index: 0, routes: [{name: 'Tabs'}]})}
                 title="Tabs"
