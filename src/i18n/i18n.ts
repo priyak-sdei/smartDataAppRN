@@ -1,13 +1,16 @@
-import * as Localization from 'react-native-localize';
-import {I18nManager} from 'react-native';
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
-// if English isn't your default language, move Translations to the appropriate language file.
-import en, {Translations} from './en';
+import en, {Translations} from './locales/en';
+import * as Localization from 'react-native-localize';
+import {I18nManager} from 'react-native';
 
 const fallbackLocale = 'en-US';
 const systemLocales = Localization.getLocales();
-const resources = {en};
+
+const resources = {
+    en: {translation: en},
+};
+
 const supportedTags = Object.keys(resources);
 
 // Checks to see if the device locale matches any of the supported locales
@@ -22,7 +25,6 @@ const pickSupportedLocale: () => Localization.Locale | undefined = () => {
 };
 
 const locale = pickSupportedLocale();
-
 export let isRTL = false;
 
 // Need to set RTL ASAP to ensure the app is rendered correctly. Waiting for i18n to init is too late.
@@ -35,10 +37,13 @@ if (locale?.languageTag && locale?.isRTL) {
 
 export const initI18n = async () => {
     i18n.use(initReactI18next);
+
     await i18n.init({
         resources,
-        lng: locale?.languageTag ?? fallbackLocale,
-        fallbackLng: fallbackLocale,
+        lng: 'en',
+        fallbackLng: 'en',
+        // lng: locale?.languageTag ?? fallbackLocale,
+        // fallbackLng: fallbackLocale,
         interpolation: {
             escapeValue: false,
         },
@@ -74,7 +79,7 @@ type RecursiveKeyOfHandleValue<
     TValue,
     Text extends string,
     IsFirstLevel extends boolean,
-> = TValue extends any[]
+> = TValue extends unknown[]
     ? Text
     : TValue extends object
       ? IsFirstLevel extends true
