@@ -30,17 +30,16 @@
         "noUnusedParameters": true,
         "baseUrl": ".",
         "paths": {
-            // "@constants/*": ["./src/constants/*"],
-            // "@components/*": ["./src/components/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@components/*": ["./src/components/*"],
+            "@hooks/*": ["./src/hooks/*"],
+            "@i18n/*": ["./src/i18n/*"],
+            "@navigators/*": ["./src/navigators/*"],
+            "@redux/*": ["./src/redux/*"],
             "@screens/*": ["./src/screens/*"],
-            // "@assets/*": ["./src/assets/*"],
-            // "@theme/*": ["./src/theme/*"],
-            // "@localization/*": ["./src/localization/*"],
-            // "@helpers/*": ["./src/helpers/*"],
-            // "@type/*": ["./src/types/*"],
-            // "@utils/*": ["./src/utils/*"],
-            // "@/*": ["./src/*"],
-            "@redux/*": ["./src/redux/*"]
+            "@theme/*": ["./src/theme/*"],
+            "@types/*": ["./src/types/*"],
+            "@utils/*": ["./src/utils/*"]
         }
     },
     "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]

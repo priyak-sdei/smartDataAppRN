@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {TOptions} from 'i18next';
 import {StyleProp, Text as RNText, TextProps as RNTextProps, TextStyle} from 'react-native';
 import {isRTL, translate, TxKeyPath} from 'src/i18n';
@@ -17,6 +17,10 @@ export interface TextProps extends RNTextProps {
      * as well as explicitly setting locale or translation fallbacks.
      */
     txOptions?: TOptions;
+    /**
+     * Children components.
+     */
+    children?: ReactNode;
 }
 
 /**
@@ -27,9 +31,9 @@ export interface TextProps extends RNTextProps {
  * @returns {JSX.Element} The rendered `Text` component.
  */
 export function Text(props: TextProps) {
-    const {tx, txOptions, text} = props;
+    const {tx, txOptions, text, children} = props;
     const i18nText = tx && translate(tx, txOptions);
-    const content = i18nText || text;
+    const content = i18nText || text || children;
 
     const $styles: StyleProp<TextStyle> = [$rtlStyle];
     return <RNText style={$styles}>{content}</RNText>;

@@ -6,7 +6,6 @@
  */
 import './devtools/ReactotronConfig';
 import React, {useEffect} from 'react';
-
 import {initI18n} from './i18n';
 import {KeyboardProvider} from 'react-native-keyboard-controller';
 import AppNavigator from './navigators/AppNavigator';
@@ -16,6 +15,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {initialWindowMetrics, SafeAreaProvider} from 'react-native-safe-area-context';
+import {StyleSheet} from 'react-native';
 function App(): React.JSX.Element {
     useEffect(() => {
         initI18n().then(() => {});
@@ -26,7 +26,7 @@ function App(): React.JSX.Element {
             <Provider store={store}>
                 <PersistGate persistor={persistor}>
                     <KeyboardProvider>
-                        <GestureHandlerRootView style={{flex: 1}}>
+                        <GestureHandlerRootView style={styles.container}>
                             <BottomSheetModalProvider>
                                 <AppNavigator />
                             </BottomSheetModalProvider>
@@ -39,3 +39,9 @@ function App(): React.JSX.Element {
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+});

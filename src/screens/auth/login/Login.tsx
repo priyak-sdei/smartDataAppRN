@@ -4,8 +4,11 @@ import {BottomSheetComponent, useBottomSheet} from 'src/components/common/action
 import {LoginScreenProps} from 'src/navigators/AppParamList';
 import {Fonts} from 'src/theme/typography';
 import {Text} from 'src/components';
-import {ThemedStyle} from 'src/theme';
+import {createStyles} from './Login.styles';
+import {useStyles} from 'src/hooks/useStyles';
 const Login: React.FC<LoginScreenProps> = ({navigation}) => {
+    // console.log(themeMode, 'themeMode...');
+    const styles = useStyles(createStyles);
     const {ref: helloSheetRef, open: openSheet, close: closeSheet} = useBottomSheet();
 
     const handleClose = () => {
@@ -14,10 +17,13 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
 
     return (
         <View>
-            <Button
-                onPress={() => navigation.reset({index: 0, routes: [{name: 'Tabs'}]})}
-                title="Tabs"
-            />
+            <View style={styles.text}>
+                <Button
+                    onPress={() => navigation.reset({index: 0, routes: [{name: 'Tabs'}]})}
+                    title="Tabs"
+                />
+            </View>
+
             <Text style={styles.loginTextStyle} tx="common.Hi" txOptions={{name: 'Priya11'}} />
 
             <Button onPress={() => navigation.navigate('SignUp', {userId: 5})} title="SignUp" />
@@ -45,46 +51,3 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
 };
 
 export default Login;
-
-const styles = StyleSheet.create({
-    loginTextStyle: {
-        ...Fonts.bold,
-    },
-    sheetContent: {
-        padding: 20,
-        justifyContent: 'space-between',
-    },
-    sheetTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 16,
-    },
-    sheetItem: {
-        fontSize: 18,
-        marginVertical: 8,
-    },
-    closeButton: {
-        padding: 12,
-        marginTop: 10,
-        backgroundColor: 'tomato',
-        borderRadius: 8,
-        alignItems: 'center',
-    },
-    closeButtonText: {
-        color: 'white',
-        fontSize: 16,
-    },
-    bottomSheet: {
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.22,
-        shadowRadius: 2.22,
-
-        elevation: 3,
-    },
-});
