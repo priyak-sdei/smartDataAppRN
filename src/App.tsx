@@ -20,7 +20,7 @@ import {StyleSheet} from 'react-native';
 function App(): React.JSX.Element {
     useEffect(() => {
         initI18n().then(() => {});
-    }, []); // Ensure Firebase is initialized
+    }, []);
     return (
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
             <Provider store={store}>
