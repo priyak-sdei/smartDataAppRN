@@ -1,4 +1,4 @@
 import Login from './auth/login/Login';
-import SignUp from './auth/SignUp/SignUp';
+import SignUp from './auth/signup';
 
 export {Login, SignUp};
