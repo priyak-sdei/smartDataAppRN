@@ -15,12 +15,12 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {initialWindowMetrics, SafeAreaProvider} from 'react-native-safe-area-context';
+
 import {StyleSheet} from 'react-native';
 function App(): React.JSX.Element {
     useEffect(() => {
         initI18n().then(() => {});
-    }, []);
-
+    }, []); // Ensure Firebase is initialized
     return (
         <SafeAreaProvider initialMetrics={initialWindowMetrics}>
             <Provider store={store}>
