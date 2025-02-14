@@ -6,7 +6,7 @@ import {AuthScreenProps} from 'src/navigators/AppParamList';
 import {resetRoot} from 'src/navigators/navigationUtilities';
 import {save} from 'src/utils/storage';
 import {useStyles} from 'src/hooks/useStyles';
-import {createStyles} from './SignUp.styles';
+import {createStyles} from './styles';
 import {Text, Screen} from 'src/components';
 const SignUp: React.FC<AuthScreenProps<'SignUp'>> = props => {
     const dispatch = useAppDispatch();
