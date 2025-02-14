@@ -23,6 +23,9 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
         </ThemeContext.Provider>
     );
 };
+export const getTheme = () => {
+    return theme['light'];
+};
 
 export const useTheme = () => {
     const context = useContext(ThemeContext);
