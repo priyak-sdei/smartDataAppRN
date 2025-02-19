@@ -73,8 +73,8 @@ export function save(key: string, value: unknown): boolean {
 export function remove(key: string): void {
     try {
         storage.delete(key);
-    } catch {
-        console.log('error');
+    } catch (err) {
+        console.error('error', err);
     }
 }
 
@@ -84,8 +84,8 @@ export function remove(key: string): void {
 export function clear(): void {
     try {
         storage.clearAll();
-    } catch {
-        console.log('error');
+    } catch (err) {
+        console.error('error', err);
     }
 }
 

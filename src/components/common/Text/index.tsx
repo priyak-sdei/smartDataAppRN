@@ -21,6 +21,8 @@ export interface TextProps extends RNTextProps {
      * Children components.
      */
     children?: ReactNode;
+
+    style?: StyleProp<TextStyle>;
 }
 
 /**
@@ -31,11 +33,11 @@ export interface TextProps extends RNTextProps {
  * @returns {JSX.Element} The rendered `Text` component.
  */
 export function Text(props: TextProps) {
-    const {tx, txOptions, text, children} = props;
+    const {tx, txOptions, text, children, style} = props;
     const i18nText = tx && translate(tx, txOptions);
     const content = i18nText || text || children;
 
-    const $styles: StyleProp<TextStyle> = [$rtlStyle];
+    const $styles: StyleProp<TextStyle> = [$rtlStyle, style];
     return <RNText style={$styles}>{content}</RNText>;
 }
 

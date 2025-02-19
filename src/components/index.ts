@@ -1,2 +1,2 @@
-export * from './common/Text';
+export * from './common/text';
 export * from './layout/MainLayout';

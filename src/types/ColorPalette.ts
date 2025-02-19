@@ -2,6 +2,8 @@
 export interface ColorPalette {
     primary: string;
     background: string;
+    mutedGrey: string;
+    darkGrey: string;
     card: string;
     text: string;
     border: string;
@@ -13,6 +15,9 @@ export interface ColorPalette {
     incomeBackground: string;
     expense: string;
     expenseBackground: string;
+    black: string;
+    overlayColor: string;
+    white: string;
 }
 
 export interface ThemeColorPalette {
