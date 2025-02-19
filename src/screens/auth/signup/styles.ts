@@ -5,7 +5,7 @@ import {ExtendedTheme} from 'src/types/ColorPalette';
 export const createStyles = (colors: ExtendedTheme['colors']) =>
     StyleSheet.create({
         container: {
-            backgroundColor: colors.expenseBackground,
+            backgroundColor: colors.primary,
         },
         heading: {
             backgroundColor: colors.primary,

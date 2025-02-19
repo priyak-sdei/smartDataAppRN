@@ -3,6 +3,16 @@ module.exports = {
     plugins: [
         'react-native-reanimated/plugin',
         [
+            'module:react-native-dotenv',
+            {
+                envName: 'ENVFILE',
+                moduleName: '@env', // Ensures variables are imported from '@env'
+                path: '.env', // Specifies the path to the .env file
+                safe: true, // Ensures all required variables are set
+                allowUndefined: false, // Prevents using undefined variables
+            },
+        ],
+        [
             'module-resolver',
             {
                 root: ['.'],
