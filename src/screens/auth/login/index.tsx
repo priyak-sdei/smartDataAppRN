@@ -45,7 +45,7 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
                 <Text text="Forgot Password?" style={styles.forgotPasswordStyle} />
                 <Text>
                     {Config.ENV}
-                    {Config.URL} fsdf
+                    {Config.URL}
                 </Text>
                 <View style={styles.loginWithContainer}>
                     <View style={styles.lineStyle} />

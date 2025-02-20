@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1210"
+   LastUpgradeVersion = "1530"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <PreActions>
          <ExecutionAction
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;if [ -z &quot;$ENVFILE&quot; ]; then&#10;  ENVFILE=&quot;.env.dev&quot;&#10;fi&#10;&#10;echo $ENVFILE &gt; /tmp/envfile&#10;&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;# Type a script or drag a script file from your workspace to insert its path.&#10;if [ -z &quot;$ENVFILE&quot; ]; then&#10;  ENVFILE=&quot;.env.prod&quot;&#10;fi&#10;&#10;echo $ENVFILE &gt; /tmp/envfile&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "smartDataAppRN.app"
-                     BlueprintName = "smartDataAppRN"
+                     BlueprintIdentifier = "5180D18E2D670C58005FB7F3"
+                     BuildableName = "smartDataAppRNProd.app"
+                     BlueprintName = "smartDataAppRNProd"
                      ReferencedContainer = "container:smartDataAppRN.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -26,13 +27,13 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;# Type a script or drag a script file from your workspace to insert its path.&#10;&quot;${SRCROOT}/../node_modules/react-native-config/ios/ReactNativeConfig/BuildXCConfig.rb&quot; &quot;${SRCROOT}/..&quot; &quot;${SRCROOT}/tmp.xcconfig&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-                     BuildableName = "smartDataAppRN.app"
-                     BlueprintName = "smartDataAppRN"
+                     BlueprintIdentifier = "5180D18E2D670C58005FB7F3"
+                     BuildableName = "smartDataAppRNProd.app"
+                     BlueprintName = "smartDataAppRNProd"
                      ReferencedContainer = "container:smartDataAppRN.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
@@ -48,9 +49,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "smartDataAppRN.app"
-               BlueprintName = "smartDataAppRN"
+               BlueprintIdentifier = "5180D18E2D670C58005FB7F3"
+               BuildableName = "smartDataAppRNProd.app"
+               BlueprintName = "smartDataAppRNProd"
                ReferencedContainer = "container:smartDataAppRN.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -60,9 +61,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-      </Testables>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -78,9 +78,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "smartDataAppRN.app"
-            BlueprintName = "smartDataAppRN"
+            BlueprintIdentifier = "5180D18E2D670C58005FB7F3"
+            BuildableName = "smartDataAppRNProd.app"
+            BlueprintName = "smartDataAppRNProd"
             ReferencedContainer = "container:smartDataAppRN.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,9 +95,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "smartDataAppRN.app"
-            BlueprintName = "smartDataAppRN"
+            BlueprintIdentifier = "5180D18E2D670C58005FB7F3"
+            BuildableName = "smartDataAppRNProd.app"
+            BlueprintName = "smartDataAppRNProd"
             ReferencedContainer = "container:smartDataAppRN.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
