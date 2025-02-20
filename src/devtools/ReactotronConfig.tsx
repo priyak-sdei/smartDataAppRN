@@ -4,15 +4,15 @@
  * @see https://github.com/infinitered/reactotron
  */
 
-import {DevSettings, DevToolsSettingsManager, NativeModules} from 'react-native';
-import {reactotronRedux} from 'reactotron-redux';
-import {goBack, navigate, resetRoot} from 'src/navigators/navigationUtilities';
-import {Reactotron} from './ReactotronClient';
+import {DevSettings} from 'react-native';
 import {ArgType} from 'reactotron-core-client';
 import {ReactotronReactNative} from 'reactotron-react-native';
-import {storage} from 'src/utils/storage';
 import mmkvPlugin from 'reactotron-react-native-mmkv';
+import {reactotronRedux} from 'reactotron-redux';
 import {RootStackParamList} from 'src/navigators/AppParamList';
+import {goBack, navigate, resetRoot} from 'src/navigators/navigationUtilities';
+import {storage} from 'src/utils/storage';
+import {Reactotron} from './ReactotronClient';
 
 if (__DEV__) {
     const reactotron = Reactotron.configure({

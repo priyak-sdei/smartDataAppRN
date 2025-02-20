@@ -5,6 +5,7 @@ import {
     BottomSheetView as GBottomSheetView,
 } from '@gorhom/bottom-sheet';
 import {BottomSheetModalMethods} from '@gorhom/bottom-sheet/lib/typescript/types';
+import {colors} from '@theme/colors';
 import React from 'react';
 import {Keyboard, View, ViewStyle} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -49,6 +50,8 @@ const BottomSheet = React.forwardRef<BottomSheetRef, BottomSheetProps>(({...prop
         </BottomSheetContext.Provider>
     );
 });
+
+BottomSheet.displayName = 'BottomSheet';
 
 type BottomSheetContentProps = Omit<
     React.ComponentPropsWithoutRef<typeof BottomSheetModal>,
@@ -105,15 +108,13 @@ const BottomSheetContent = React.forwardRef<BottomSheetContentRef, BottomSheetCo
                     ...props,
                     ...backdropProps,
                 };
-                console.log('backdreop working');
                 return (
                     <BottomSheetBackdrop
                         // opacity={opacity}
                         disappearsOnIndex={disappearsOnIndex}
                         pressBehavior={pressBehavior}
-                        style={[{backgroundColor: 'rgba(0,0,0,0.8)'}, style]}
+                        style={[{backgroundColor: colors.overlayColor}, style]}
                         onPress={() => {
-                            console.log('Backdrop pressed');
                             if (Keyboard.isVisible()) {
                                 Keyboard.dismiss();
                             }
@@ -123,7 +124,6 @@ const BottomSheetContent = React.forwardRef<BottomSheetContentRef, BottomSheetCo
                     />
                 );
             },
-            //   [backdropProps, isDarkColorScheme],
             [backdropProps],
         );
 
@@ -134,9 +134,9 @@ const BottomSheetContent = React.forwardRef<BottomSheetContentRef, BottomSheetCo
                 enablePanDownToClose={enablePanDownToClose}
                 backdropComponent={renderBackdrop}
                 enableDynamicSizing={enableDynamicSizing}
-                backgroundStyle={[{backgroundColor: 'white'}, backgroundStyle]}
+                backgroundStyle={[{backgroundColor: colors.white}, backgroundStyle]}
                 handleIndicatorStyle={{
-                    backgroundColor: 'black',
+                    backgroundColor: colors.black,
                 }}
                 topInset={insets.top}
                 android_keyboardInputMode={android_keyboardInputMode}
@@ -145,6 +145,8 @@ const BottomSheetContent = React.forwardRef<BottomSheetContentRef, BottomSheetCo
         );
     },
 );
+
+BottomSheetContent.displayName = 'BottomSheetContent';
 
 type BottomSheetViewProps = Omit<
     React.ComponentPropsWithoutRef<typeof GBottomSheetView>,
@@ -188,3 +190,5 @@ export const BottomSheetComponent = React.forwardRef<
         </BottomSheet>
     );
 });
+
+BottomSheetComponent.displayName = 'BottomSheetComponent';
