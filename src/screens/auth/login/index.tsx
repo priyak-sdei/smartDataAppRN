@@ -41,6 +41,7 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
                     buttonTitle="Login"
                     buttonStyle={styles.loginButtonStyle}
                     textStyle={styles.loginTextStyle}
+                    onPress={() => navigation.reset({index: 0, routes: [{name: 'Tabs'}]})}
                 />
                 <Text text="Forgot Password?" style={styles.forgotPasswordStyle} />
                 <Text>
@@ -66,6 +67,14 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
                         buttonStyle={styles.customButtonStyle}
                     />
                 </View>
+                <Text style={styles.accountText}>
+                    Dont have an account?{'  '}
+                    <Text
+                        tx="Sign Up"
+                        style={styles.signUpText}
+                        onPress={() => navigation.navigate('SignUp', {userId: 5})}
+                    />
+                </Text>
             </View>
         </Screen>
     );

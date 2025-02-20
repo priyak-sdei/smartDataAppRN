@@ -6,4 +6,7 @@ export const IMAGES = {
         eye: require('./auth/eye.png'),
         eyeSlash: require('./auth/eyeSlash.png'),
     },
+    common: {
+        arrowLeft: require('./common/arrowLeft.png'),
+    },
 };

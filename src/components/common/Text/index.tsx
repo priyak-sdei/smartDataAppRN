@@ -1,6 +1,6 @@
-import React, {ReactNode} from 'react';
 import {TOptions} from 'i18next';
-import {StyleProp, Text as RNText, TextProps as RNTextProps, TextStyle} from 'react-native';
+import React, {ReactNode} from 'react';
+import {Text as RNText, TextProps as RNTextProps, StyleProp, TextStyle} from 'react-native';
 import {isRTL, translate, TxKeyPath} from 'src/i18n';
 
 export interface TextProps extends RNTextProps {
@@ -38,7 +38,13 @@ export function Text(props: TextProps) {
     const content = i18nText || text || children;
 
     const $styles: StyleProp<TextStyle> = [$rtlStyle, style];
-    return <RNText style={$styles}>{content}</RNText>;
+    return (
+        <RNText {...props} style={$styles}>
+            {content}
+        </RNText>
+    );
 }
 
-const $rtlStyle: TextStyle = isRTL ? {writingDirection: 'rtl'} : {};
+const $rtlStyle: TextStyle = isRTL
+    ? {writingDirection: 'rtl', includeFontPadding: false}
+    : {includeFontPadding: false};

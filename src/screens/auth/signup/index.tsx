@@ -1,15 +1,21 @@
+import {IMAGES} from '@assets/images';
+import CustomButton from '@components/common/button';
+import CustomTextInput from '@components/common/textInput';
 import {increment} from '@redux/slices/counterSlice';
 import {useAppDispatch, useAppSelector} from '@redux/store';
-import React from 'react';
-import {Button, View} from 'react-native';
+import {colors} from '@theme/colors';
+import React, {useState} from 'react';
+import {View} from 'react-native';
+import {Screen, Text} from 'src/components';
+import {useStyles} from 'src/hooks/useStyles';
 import {AuthScreenProps} from 'src/navigators/AppParamList';
 import {resetRoot} from 'src/navigators/navigationUtilities';
 import {save} from 'src/utils/storage';
-import {useStyles} from 'src/hooks/useStyles';
 import {createStyles} from './styles';
-import {Text, Screen} from 'src/components';
-const SignUp: React.FC<AuthScreenProps<'SignUp'>> = props => {
+
+const SignUp: React.FC<AuthScreenProps<'SignUp'>> = ({navigation}) => {
     const dispatch = useAppDispatch();
+    const [secureText, setSecureText] = useState(false);
     const styles = useStyles(createStyles);
     const data = useAppSelector(state => state?.counter);
 
@@ -29,8 +35,54 @@ const SignUp: React.FC<AuthScreenProps<'SignUp'>> = props => {
     return (
         <Screen preset="auto" safeAreaEdges={['top', 'bottom']}>
             <View style={styles.container}>
-                <Text>SignUp</Text>
-                <Button onPress={handleSignUpPress} title="Sign Up page" />
+                <CustomTextInput
+                    placeholder="Name"
+                    labelTitle="Name"
+                    withLabel={true}
+                    placeholderTextColor={colors.placeholder}
+                />
+                <CustomTextInput
+                    placeholder="+91"
+                    labelTitle="Phone Number"
+                    withLabel={true}
+                    placeholderTextColor={colors.placeholder}
+                />
+                <CustomTextInput
+                    placeholder="example@example.com"
+                    labelTitle="Email"
+                    withLabel={true}
+                    placeholderTextColor={colors.placeholder}
+                />
+                <CustomTextInput
+                    placeholder="Password"
+                    placeholderTextColor={colors.placeholder}
+                    labelTitle="Password"
+                    withLabel={true}
+                    sourceRightIcon={secureText ? IMAGES.auth.eye : IMAGES.auth.eyeSlash}
+                    onRightIconPress={() => setSecureText(!secureText)}
+                />
+                <CustomTextInput
+                    placeholder="Confirm Password"
+                    placeholderTextColor={colors.placeholder}
+                    labelTitle="Confirm Password"
+                    withLabel={true}
+                    withLabelContainerStyle={styles.passwordContainerStyle}
+                    sourceRightIcon={secureText ? IMAGES.auth.eye : IMAGES.auth.eyeSlash}
+                    onRightIconPress={() => setSecureText(!secureText)}
+                />
+                <CustomButton
+                    buttonTitle="Sign up"
+                    buttonStyle={styles.loginButtonStyle}
+                    textStyle={styles.loginTextStyle}
+                />
+                <Text style={styles.accountText}>
+                    Already have an account?{'  '}
+                    <Text
+                        tx="Login"
+                        style={styles.signUpText}
+                        onPress={() => navigation.goBack()}
+                    />
+                </Text>
             </View>
         </Screen>
     );

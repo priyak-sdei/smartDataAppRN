@@ -11,9 +11,6 @@ PODS:
   - FBLazyVector (0.77.1)
   - Firebase/Analytics (11.8.0):
     - Firebase/Core
-  - Firebase/Auth (11.8.0):
-    - Firebase/CoreOnly
-    - FirebaseAuth (~> 11.8.0)
   - Firebase/Core (11.8.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 11.8.0)
@@ -40,17 +37,6 @@ PODS:
     - GoogleUtilities/Network (~> 8.0)
     - "GoogleUtilities/NSData+zlib (~> 8.0)"
     - nanopb (~> 3.30910.0)
-  - FirebaseAppCheckInterop (11.8.0)
-  - FirebaseAuth (11.8.1):
-    - FirebaseAppCheckInterop (~> 11.0)
-    - FirebaseAuthInterop (~> 11.0)
-    - FirebaseCore (~> 11.8.0)
-    - FirebaseCoreExtension (~> 11.8.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
-    - GoogleUtilities/Environment (~> 8.0)
-    - GTMSessionFetcher/Core (< 5.0, >= 3.4)
-    - RecaptchaInterop (~> 100.0)
-  - FirebaseAuthInterop (11.8.0)
   - FirebaseCore (11.8.1):
     - FirebaseCoreInternal (~> 11.8.0)
     - GoogleUtilities/Environment (~> 8.0)
@@ -1760,20 +1746,15 @@ PODS:
     - React-logger (= 0.77.1)
     - React-perflogger (= 0.77.1)
     - React-utils (= 0.77.1)
-  - RecaptchaInterop (100.0.0)
   - RNAppleAuthentication (2.4.0):
     - React-Core
   - RNFBAnalytics (21.10.1):
     - Firebase/Analytics (= 11.8.0)
     - React-Core
     - RNFBApp
-  - RNFBApp (21.10.1):
+  - RNFBApp (21.10.0):
     - Firebase/CoreOnly (= 11.8.0)
     - React-Core
-  - RNFBAuth (21.10.1):
-    - Firebase/Auth (= 11.8.0)
-    - React-Core
-    - RNFBApp
   - RNFBCrashlytics (21.10.1):
     - Firebase/Crashlytics (= 11.8.0)
     - FirebaseCoreExtension
@@ -2056,7 +2037,6 @@ DEPENDENCIES:
   - "RNAppleAuthentication (from `../node_modules/@invertase/react-native-apple-authentication`)"
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
-  - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
   - "RNFBCrashlytics (from `../node_modules/@react-native-firebase/crashlytics`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - "RNGoogleSignin (from `../node_modules/@react-native-google-signin/google-signin`)"
@@ -2070,9 +2050,6 @@ SPEC REPOS:
     - AppAuth
     - Firebase
     - FirebaseAnalytics
-    - FirebaseAppCheckInterop
-    - FirebaseAuth
-    - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreExtension
     - FirebaseCoreInternal
@@ -2089,7 +2066,6 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - PromisesSwift
-    - RecaptchaInterop
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -2240,8 +2216,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-firebase/analytics"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
-  RNFBAuth:
-    :path: "../node_modules/@react-native-firebase/auth"
   RNFBCrashlytics:
     :path: "../node_modules/@react-native-firebase/crashlytics"
   RNGestureHandler:
@@ -2265,9 +2239,6 @@ SPEC CHECKSUMS:
   FBLazyVector: 79c4b7ec726447eec5f8593379466bd9fde1aa14
   Firebase: d80354ed7f6df5f9aca55e9eb47cc4b634735eaf
   FirebaseAnalytics: 4fd42def128146e24e480e89f310e3d8534ea42b
-  FirebaseAppCheckInterop: 7bf86d55a2b7e9bd91464120eba3e52e4b63b2e2
-  FirebaseAuth: ad59a1a7b161e75f74c39f70179d2482d40e2737
-  FirebaseAuthInterop: 651756e70d9a0b9160db39ead71fd5507dbb6c84
   FirebaseCore: 99fe0c4b44a39f37d99e6404e02009d2db5d718d
   FirebaseCoreExtension: 3d3f2017a00d06e09ab4ebe065391b0bb642565e
   FirebaseCoreInternal: df24ce5af28864660ecbd13596fc8dd3a8c34629
@@ -2350,11 +2321,9 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: e7e92253013754a8c35ebdbf8ad700f4e8956f62
   ReactCodegen: cf66081f0d093f104d18751783f167011920b786
   ReactCommon: 2b7aae141aa868224ef65cdc5144d1ec1acfed57
-  RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   RNAppleAuthentication: e00c76acb03351f5544373c78fa7f359bef6d5d3
   RNFBAnalytics: 45c56a6c5e11196632b51648dee8f944f658cb0a
-  RNFBApp: 297657f2950948285f7d176288aad7bfeb3ba1d5
-  RNFBAuth: 7eb15fddce43561615ac08f22f9dd7db24cd6526
+  RNFBApp: 399a4d5f7b39af8a35cd4a8089e6b46f05d65cf2
   RNFBCrashlytics: 80265c3ba793703b6384ae5aced4afe8967a9341
   RNGestureHandler: a5c5e76f0056a7115b839686934740b6639c7cec
   RNGoogleSignin: e548e9a67bb94980df514f71e107a13d6ebe40d3
@@ -2362,7 +2331,7 @@ SPEC CHECKSUMS:
   RNReanimated: 5c268cff742e86416974907d8596b173683e9ce6
   RNScreens: 6ce56b0e106dc2cffa856e9abdaf0f0fe356f93a
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
-  Yoga: ed2784b3aef64a3976473f554ac4c08ee8443691
+  Yoga: 28b8cda182ee3092ff80203da66dcb3ffc8cf401
 
 PODFILE CHECKSUM: 3e5260055e75169678f57cda751052ab1ad673bd
 

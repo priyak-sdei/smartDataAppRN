@@ -1,5 +1,7 @@
+import {colors} from '@theme/colors';
 import React from 'react';
 import {
+    ActivityIndicator,
     Image,
     ImageSourcePropType,
     ImageStyle,
@@ -19,6 +21,7 @@ type BaseButtonProps = {
     imageWithText?: boolean;
     imageWithTextSource?: ImageSourcePropType;
     imageWithTextSourceStyle?: StyleProp<ImageStyle>;
+    isLoading?: boolean;
 };
 
 type ImageButtonProps = {
@@ -48,6 +51,7 @@ const CustomButton: React.FC<ButtonProps> = ({
     imageWithTextSource,
     imageWithTextSourceStyle,
     buttonTitle,
+    isLoading,
     ...props
 }) => {
     return (
@@ -63,7 +67,11 @@ const CustomButton: React.FC<ButtonProps> = ({
                             resizeMode="contain"
                         />
                     )}
-                    <Text style={[styles.textStyle, textStyle]} text={buttonTitle} />
+                    {isLoading ? (
+                        <ActivityIndicator color={colors.white} />
+                    ) : (
+                        <Text style={[styles.textStyle, textStyle]} text={buttonTitle} />
+                    )}
                 </View>
             )}
         </TouchableOpacity>

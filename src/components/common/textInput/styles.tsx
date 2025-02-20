@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         height: verticalScale(45),
         justifyContent: 'space-between',
-        marginVertical: verticalScale(2),
+        marginVertical: verticalScale(5),
     },
     textInputStyle: {
         height: verticalScale(45),
