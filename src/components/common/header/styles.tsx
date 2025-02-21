@@ -5,50 +5,48 @@ import {ExtendedTheme} from 'src/types/ColorPalette';
 
 export const createStyles = (colors: ExtendedTheme['colors']) =>
     StyleSheet.create({
-        headerContainer: {
-            width: '100%',
-            paddingVertical: verticalScale(15),
-            paddingHorizontal: horizontalScale(20),
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            borderBottomWidth: moderateScale(1),
-            // borderColor: Colors.borderColorHeader,
-            alignItems: 'center',
-        },
         drawerContainer: {
             alignItems: 'center',
             flexDirection: 'row',
         },
+        headerContainer: {
+            alignItems: 'center',
+            borderBottomWidth: moderateScale(1),
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: horizontalScale(20),
+            paddingVertical: verticalScale(15),
+            width: '100%',
+        },
 
         imageContainer: {
+            padding: moderateScale(5),
             position: 'absolute',
             zIndex: 1,
-            padding: moderateScale(5),
         },
         imageStyle: {
-            width: moderateScale(30),
             height: moderateScale(30),
+            width: moderateScale(30),
+        },
+        rightIconContainer: {
+            alignItems: 'flex-end',
+            flex: 1,
+        },
+        rightIconStyle: {
+            borderRadius: moderateScale(50),
+            height: moderateScale(35),
+            width: moderateScale(35),
         },
         screenText: {
             ...Fonts.medium,
-            // color: Colors.primaryText,
-            textAlign: 'center',
             includeFontPadding: false,
+            textAlign: 'center',
             textAlignVertical: 'center',
         },
         titleContainer: {
+            alignItems: 'center',
             flex: 1,
             flexDirection: 'row',
-            alignItems: 'center',
             justifyContent: 'center',
-        },
-        rightIconStyle: {
-            height: moderateScale(35),
-            width: moderateScale(35),
-            borderRadius: moderateScale(50),
-        },
-        rightIconContainer: {
-            flex: 1,
-            alignItems: 'flex-end',
         },
     });

@@ -30,7 +30,7 @@ interface CustomHeader {
     leftIconStyle?: StyleProp<ImageStyle>;
 }
 
-const Header: React.FC<CustomHeader> = ({
+export const Header: React.FC<CustomHeader> = ({
     title,
     onPress,
     titleStyle,
@@ -48,7 +48,7 @@ const Header: React.FC<CustomHeader> = ({
     return (
         <View style={styles.headerContainer}>
             <View style={styles.drawerContainer}>
-                {text}
+                {/* {text} */}
                 {backIcon && (
                     <TouchableOpacity
                         hitSlop={{
@@ -93,5 +93,3 @@ const Header: React.FC<CustomHeader> = ({
         </View>
     );
 };
-
-export default Header;

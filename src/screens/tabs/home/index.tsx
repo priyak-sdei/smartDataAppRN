@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <Screen preset="auto" safeAreaEdges={['top', 'bottom']}>
             <View>
-                <Header title="Home" />
+                <Header text={<Text>Home</Text>} title="Home" backIcon={false} />
                 <Text>Home</Text>
             </View>
         </Screen>

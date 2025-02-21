@@ -1,13 +1,14 @@
 import {IMAGES} from '@assets/images';
 import CustomButton from '@components/common/button';
 import CustomTextInput from '@components/common/textInput';
+import {Header, Screen, Text} from '@components/index';
 import useAppleSignIn from '@hooks/useAppleSignIn';
 import useGoogleSignIn from '@hooks/useGoogleSignIn';
 import {colors} from '@theme/colors';
+
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import Config from 'react-native-config';
-import {Screen, Text} from 'src/components';
 import {useStyles} from 'src/hooks/useStyles';
 import {LoginScreenProps} from 'src/navigators/AppParamList';
 import {createStyles} from './styles';
@@ -21,6 +22,8 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
 
     return (
         <Screen preset="auto" safeAreaEdges={['top', 'bottom']}>
+            {/* <Header /> */}
+            <Header title="Home" backIcon={false} />
             <View style={styles.mainContainer}>
                 <CustomTextInput
                     placeholder="example@example.com"
