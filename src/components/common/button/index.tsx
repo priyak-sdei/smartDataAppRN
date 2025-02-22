@@ -39,7 +39,19 @@ type TextButtonProps = {
 };
 
 type ButtonProps = BaseButtonProps & (ImageButtonProps | TextButtonProps);
-
+/**
+ * A component that allows users to take actions and make choices.
+ * Wraps the Text component with a TouchableOpacity component. Also include loading in button
+ * @param {ButtonProps} props - The props for the `Button` component.
+ * @returns {JSX.Element} The rendered `Button` component.
+ * @example
+ * <CustomButton
+ *   buttonTitle="common:ok"
+ *   buttonStyle={styles.button}
+ *   textStyle={styles.buttonText}
+ *   onPress={handleButtonPress}
+ * />
+ */
 const CustomButton: React.FC<ButtonProps> = ({
     buttonStyle,
     textStyle,

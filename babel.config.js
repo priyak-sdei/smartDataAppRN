@@ -29,6 +29,7 @@ module.exports = {
                 ],
                 alias: {
                     '@assets': './src/assets',
+                    '@provider': './src/provider',
                     '@components': './src/components',
                     '@hooks': './src/hooks',
                     '@i18n': './src/i18n',

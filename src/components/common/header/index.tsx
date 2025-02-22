@@ -25,6 +25,12 @@ interface HeaderProps {
     showBack?: boolean; // Show back button
 }
 
+/**
+ * Header that appears on many screens. Will hold navigation buttons and screen title.
+ * The Header is meant to be used with the `screenOptions.header` option on navigators, routes, or screen components via `navigation.setOptions({ header })`.
+ * @param {HeaderProps} props - The props for the `Header` component.
+ * @returns {JSX.Element} The rendered `Header` component.
+ */
 export const Header: React.FC<HeaderProps> = ({
     headerTitle,
     titleAlign = 'center',

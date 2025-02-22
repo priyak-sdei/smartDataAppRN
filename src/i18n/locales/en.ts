@@ -6,6 +6,8 @@ const en = {
         cancel: 'Cancel',
         back: 'Back',
         logOut: 'Log Out',
+        online: 'You are online',
+        offline: 'You are offline',
     },
     screen: {
         login: 'Login',

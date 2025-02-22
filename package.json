@@ -29,6 +29,7 @@
     "dependencies": {
         "@gorhom/bottom-sheet": "^5",
         "@invertase/react-native-apple-authentication": "^2.4.0",
+        "@react-native-community/netinfo": "^11.4.1",
         "@react-native-firebase/analytics": "^21.10.0",
         "@react-native-firebase/app": "^21.10.0",
         "@react-native-firebase/crashlytics": "^21.10.0",

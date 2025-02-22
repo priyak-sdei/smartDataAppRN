@@ -20,7 +20,7 @@ const Home = () => {
                 ]}
             />
             <View>
-                <Text>Home</Text>
+                <Text>Home </Text>
             </View>
         </Screen>
     );
