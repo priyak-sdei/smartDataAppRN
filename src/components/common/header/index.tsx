@@ -1,95 +1,74 @@
 import {IMAGES} from '@assets/images';
 import {useStyles} from '@hooks/useStyles';
-import {horizontalScale, verticalScale} from '@theme/metric';
+import {goBack} from '@navigators/navigationUtilities';
 import React from 'react';
 import {
     Image,
-    ImageResizeMode,
     ImageSourcePropType,
     ImageStyle,
     StyleProp,
-    TextStyle,
     TouchableOpacity,
     View,
 } from 'react-native';
 import {Text} from '../text';
 import {createStyles} from './styles';
-
-interface CustomHeader {
-    title?: string;
-    titleStyle?: StyleProp<TextStyle>;
+interface IconButton {
+    image?: ImageSourcePropType; // Image source (optional)
     onPress?: () => void;
-    sourceRightIcon?: ImageSourcePropType;
-    imageIcon?: React.ReactElement;
-    text?: React.ReactElement;
-    backIcon?: boolean;
-    rightView?: React.ReactElement;
-    onPressRightIcon?: () => void;
-    resizeMode?: ImageResizeMode;
-    rightDisabled?: boolean;
-    leftIconStyle?: StyleProp<ImageStyle>;
+    iconStyle?: StyleProp<ImageStyle>;
+}
+interface HeaderProps {
+    headerTitle: string;
+    titleAlign?: 'left' | 'center';
+    leftIcons?: IconButton[]; // Multiple left icons (image or vector)
+    rightIcons?: IconButton[]; // Multiple right icons (image or vector)
+    showBack?: boolean; // Show back button
 }
 
-export const Header: React.FC<CustomHeader> = ({
-    title,
-    onPress,
-    titleStyle,
-    imageIcon,
-    sourceRightIcon,
-    text,
-    backIcon = true,
-    onPressRightIcon,
-    rightDisabled = false,
-    rightView,
-    resizeMode = 'contain',
-    leftIconStyle,
+export const Header: React.FC<HeaderProps> = ({
+    headerTitle,
+    titleAlign = 'center',
+    showBack = true,
+    leftIcons = [],
+    rightIcons = [],
 }) => {
     const styles = useStyles(createStyles);
     return (
         <View style={styles.headerContainer}>
-            <View style={styles.drawerContainer}>
-                {/* {text} */}
-                {backIcon && (
-                    <TouchableOpacity
-                        hitSlop={{
-                            top: verticalScale(10),
-                            right: horizontalScale(10),
-                            bottom: verticalScale(12),
-                            left: horizontalScale(5),
-                        }}
-                        onPress={onPress}
-                        style={styles.imageContainer}>
-                        <Image
-                            source={IMAGES.common.arrowLeft}
-                            style={[styles.imageStyle, leftIconStyle]}
-                        />
+            <View style={styles.iconGroup}>
+                {/* Back Button */}
+                {showBack && (
+                    <TouchableOpacity style={styles.iconContainer} onPress={goBack}>
+                        <Image source={IMAGES.common.arrowLeft} style={styles.imageIcon} />
                     </TouchableOpacity>
                 )}
-                <View style={styles.titleContainer}>
-                    <Text tx={title} style={[styles.screenText, titleStyle]} />
-                    {/* <Label  style={[styles.screenText, titleStyle]}>
-            {title}
-          </Label> */}
-                    {imageIcon}
-                </View>
+                {/* Left Icons */}
+                {leftIcons.map((icon, index) => (
+                    <TouchableOpacity
+                        key={index}
+                        onPress={icon.onPress}
+                        style={styles.iconContainer}>
+                        <Image source={icon.image} style={[styles.imageIcon, icon.iconStyle]} />
+                    </TouchableOpacity>
+                ))}
             </View>
-            {sourceRightIcon && (
-                <TouchableOpacity style={styles.rightIconContainer} onPress={onPressRightIcon}>
-                    <Image
-                        source={sourceRightIcon}
-                        style={styles.rightIconStyle}
-                        resizeMode={resizeMode}
-                    />
-                </TouchableOpacity>
-            )}
-            {rightView && (
-                <TouchableOpacity
-                    disabled={rightDisabled}
-                    style={styles.rightIconContainer}
-                    onPress={onPressRightIcon}>
-                    {rightView}
-                </TouchableOpacity>
-            )}
+
+            {/* Header Title - Flexbox keeps it centered */}
+            <View style={[styles.titleContainer, titleAlign === 'left' && styles.alignLeft]}>
+                <Text tx={headerTitle} style={styles.headerTitle} />
+            </View>
+
+            {/* Right Icons */}
+            <View style={[styles.iconGroup, styles.leftJustify]}>
+                {rightIcons.map((icon, index) => (
+                    <TouchableOpacity
+                        key={index}
+                        onPress={icon.onPress}
+                        style={styles.iconContainer}>
+                        <Image source={icon.image} style={[styles.imageIcon, icon.iconStyle]} />
+                    </TouchableOpacity>
+                ))}
+            </View>
         </View>
     );
 };

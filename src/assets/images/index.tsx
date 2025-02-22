@@ -9,4 +9,7 @@ export const IMAGES = {
     common: {
         arrowLeft: require('./common/arrowLeft.png'),
     },
+    home: {
+        profile: require('./home/profile.png'),
+    },
 };

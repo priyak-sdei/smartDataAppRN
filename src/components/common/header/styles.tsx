@@ -1,52 +1,51 @@
-import {horizontalScale, moderateScale, verticalScale} from '@theme/metric';
+//import {Fonts} from '@theme/typography';
+import {moderateScale, verticalScale} from '@theme/index';
 import {Fonts} from '@theme/typography';
 import {StyleSheet} from 'react-native';
 import {ExtendedTheme} from 'src/types/ColorPalette';
 
 export const createStyles = (colors: ExtendedTheme['colors']) =>
     StyleSheet.create({
-        drawerContainer: {
-            alignItems: 'center',
-            flexDirection: 'row',
+        alignLeft: {
+            alignItems: 'flex-start',
         },
         headerContainer: {
             alignItems: 'center',
-            borderBottomWidth: moderateScale(1),
+            backgroundColor: colors.white,
+            borderBottomWidth: 1,
+            borderColor: colors.border,
             flexDirection: 'row',
+            flex: 1,
+            height: verticalScale(60),
             justifyContent: 'space-between',
-            paddingHorizontal: horizontalScale(20),
-            paddingVertical: verticalScale(15),
-            width: '100%',
+            paddingHorizontal: moderateScale(15), // elevation: 3, // Shadow for Android
+            shadowColor: colors.black, // Shadow for iOS
+            shadowOffset: {width: 0, height: 2},
+            shadowOpacity: 0.2,
         },
-
-        imageContainer: {
-            padding: moderateScale(5),
-            position: 'absolute',
-            zIndex: 1,
+        headerTitle: {
+            ...Fonts.bold,
+            fontSize: moderateScale(18),
         },
-        imageStyle: {
-            height: moderateScale(30),
+        iconContainer: {
+            left: 0,
             width: moderateScale(30),
         },
-        rightIconContainer: {
-            alignItems: 'flex-end',
-            flex: 1,
+        iconGroup: {
+            flexDirection: 'row',
+            height: moderateScale(30),
+            width: moderateScale(25),
         },
-        rightIconStyle: {
-            borderRadius: moderateScale(50),
-            height: moderateScale(35),
-            width: moderateScale(35),
+
+        imageIcon: {
+            height: moderateScale(28),
+            resizeMode: 'contain',
+            width: moderateScale(28),
         },
-        screenText: {
-            ...Fonts.medium,
-            includeFontPadding: false,
-            textAlign: 'center',
-            textAlignVertical: 'center',
-        },
+
+        leftJustify: {justifyContent: 'flex-end'},
         titleContainer: {
             alignItems: 'center',
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'center',
+            flex: 1, // Ensures center alignment,
         },
     });

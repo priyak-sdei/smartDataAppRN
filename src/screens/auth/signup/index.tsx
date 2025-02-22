@@ -6,7 +6,7 @@ import {useAppDispatch, useAppSelector} from '@redux/store';
 import {colors} from '@theme/colors';
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {Screen, Text} from 'src/components';
+import {Header, Screen, Text} from 'src/components';
 import {useStyles} from 'src/hooks/useStyles';
 import {AuthScreenProps} from 'src/navigators/AppParamList';
 import {resetRoot} from 'src/navigators/navigationUtilities';
@@ -34,6 +34,7 @@ const SignUp: React.FC<AuthScreenProps<'SignUp'>> = ({navigation}) => {
 
     return (
         <Screen preset="auto" safeAreaEdges={['top', 'bottom']}>
+            <Header headerTitle="screen.sign_up"></Header>
             <View style={styles.container}>
                 <CustomTextInput
                     placeholder="Name"

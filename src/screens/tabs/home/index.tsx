@@ -1,5 +1,5 @@
-import Header from '@components/common/header';
-import {Screen} from '@components/index';
+import {IMAGES} from '@assets/images';
+import {Header, Screen} from '@components/index';
 import React from 'react';
 import {Text, View} from 'react-native';
 import {load} from 'src/utils/storage';
@@ -9,8 +9,17 @@ const Home = () => {
 
     return (
         <Screen preset="auto" safeAreaEdges={['top', 'bottom']}>
+            <Header
+                headerTitle="screen.home"
+                showBack={false}
+                rightIcons={[
+                    {
+                        image: IMAGES.home.profile,
+                        onPress: () => {},
+                    },
+                ]}
+            />
             <View>
-                <Header text={<Text>Home</Text>} title="Home" backIcon={false} />
                 <Text>Home</Text>
             </View>
         </Screen>

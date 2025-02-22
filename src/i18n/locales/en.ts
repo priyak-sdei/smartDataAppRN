@@ -7,6 +7,11 @@ const en = {
         back: 'Back',
         logOut: 'Log Out',
     },
+    screen: {
+        login: 'Login',
+        sign_up: 'Sign Up',
+        home: 'Home',
+    },
     errorScreen: {
         title: 'Something went wrong!',
         reset: 'RESET APP',

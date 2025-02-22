@@ -4,7 +4,7 @@ export interface ColorPalette {
     background: string;
     mutedGrey: string;
     darkGrey: string;
-    card: string;
+
     text: string;
     border: string;
     notification: string;

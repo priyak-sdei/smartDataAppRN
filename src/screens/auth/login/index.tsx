@@ -22,8 +22,7 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
 
     return (
         <Screen preset="auto" safeAreaEdges={['top', 'bottom']}>
-            {/* <Header /> */}
-            <Header title="Home" backIcon={false} />
+            <Header headerTitle={'screen.login'} showBack={false} />
             <View style={styles.mainContainer}>
                 <CustomTextInput
                     placeholder="example@example.com"
