@@ -5,19 +5,66 @@ import {Header, Screen, Text} from '@components/index';
 import useAppleSignIn from '@hooks/useAppleSignIn';
 import useGoogleSignIn from '@hooks/useGoogleSignIn';
 import {colors} from '@theme/colors';
-
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {Alert, NativeModules, PermissionsAndroid, View} from 'react-native';
+import RNFS from 'react-native-fs';
 import {useStyles} from 'src/hooks/useStyles';
 import {LoginScreenProps} from 'src/navigators/AppParamList';
 import {createStyles} from './styles';
+const {FileProviderModule} = NativeModules;
 const Login: React.FC<LoginScreenProps> = ({navigation}) => {
+    console.log(NativeModules, 'hii', FileProviderModule);
     const styles = useStyles(createStyles);
-
     const {handleGoogleSignIn} = useGoogleSignIn();
     const {handleAppleSignIn} = useAppleSignIn();
 
     const [secureText, setSecureText] = useState(false);
+
+    const updateAndInstallApp = async () => {
+        // console.log('NMewwww', `${RNFS.DownloadDirectoryPath}/latest.apk`);
+        // await FileProviderModule.installAPK(`${RNFS.DownloadDirectoryPath}/latest.apk`);
+
+        // return;
+        const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            try {
+                const path = `${RNFS.DownloadDirectoryPath}/latest.apk`;
+                console.log('Downloading APK to:', path);
+
+                const download = await RNFS.downloadFile({
+                    fromUrl:
+                        'https://github.com/priyak-sdei/smartDataAppRN/releases/download/Release/app-dev-release.apk',
+                    toFile: path,
+                    progress: res => {
+                        console.log(
+                            `Download Progress: ${((res.bytesWritten / res.contentLength) * 100).toFixed(2)}%`,
+                        );
+                    },
+                }).promise;
+
+                if (download.statusCode === 200) {
+                    console.log('Download complete, installing APK...', path);
+                    try {
+                        console.log('Installing APK from:', path);
+                        await FileProviderModule.installAPK(path);
+                        console.log('APK Install Prompt Opened');
+                    } catch (error) {
+                        console.error('Installation error:', error);
+                        Alert.alert('Installation Failed', 'Could not install the update.');
+                    }
+                } else {
+                    Alert.alert('Download Failed', 'Failed to download the update.');
+                }
+            } catch (error) {
+                console.error('Download error:', error);
+                Alert.alert('Error', 'Failed to download APK.');
+            }
+        } else {
+            Alert.alert('Permission Required', 'Storage permission is needed to update the app.');
+        }
+    };
 
     return (
         <Screen preset="auto" safeAreaEdges={['top', 'bottom']}>
@@ -42,7 +89,10 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
                     buttonTitle="Login"
                     buttonStyle={styles.loginButtonStyle}
                     textStyle={styles.loginTextStyle}
-                    onPress={() => navigation.reset({index: 0, routes: [{name: 'Tabs'}]})}
+                    onPress={() => {
+                        updateAndInstallApp();
+                        // navigation.reset({index: 0, routes: [{name: 'Tabs'}]});
+                    }}
                 />
                 <Text text="Forgot Password?" style={styles.forgotPasswordStyle} />
 
