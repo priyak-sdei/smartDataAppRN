@@ -26,6 +26,7 @@ export const NetworkProvider: React.FC<{children: React.ReactNode}> = ({children
             if (isOffline === null) {
                 // First-time check, prevent showing "You are online" at launch
                 setIsOffline(offlineStatus);
+
                 return;
             }
             if (offlineStatus) {
@@ -62,7 +63,6 @@ export const NetworkProvider: React.FC<{children: React.ReactNode}> = ({children
                 }, 2000);
             }
         });
-
         return () => {
             unsubscribe();
         };
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     banner: {
         alignItems: 'center',
         left: 0,
-        padding: moderateScale(5),
+        padding: moderateScale(2),
         position: 'absolute',
         right: 0,
         top: 0,
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     bannerText: {
         color: colors.white,
         ...Fonts.medium,
-        fontSize: moderateScale(SPACING.xs),
+        fontSize: moderateScale(SPACING.xxxs),
         textAlign: 'center',
     },
     flexContainer: {

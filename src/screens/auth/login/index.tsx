@@ -8,7 +8,6 @@ import {colors} from '@theme/colors';
 
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import Config from 'react-native-config';
 import {useStyles} from 'src/hooks/useStyles';
 import {LoginScreenProps} from 'src/navigators/AppParamList';
 import {createStyles} from './styles';
@@ -46,10 +45,7 @@ const Login: React.FC<LoginScreenProps> = ({navigation}) => {
                     onPress={() => navigation.reset({index: 0, routes: [{name: 'Tabs'}]})}
                 />
                 <Text text="Forgot Password?" style={styles.forgotPasswordStyle} />
-                <Text>
-                    {Config.ENV}
-                    {Config.URL}
-                </Text>
+
                 <View style={styles.loginWithContainer}>
                     <View style={styles.lineStyle} />
                     <Text text="or log in with" style={styles.loginWithText} />
