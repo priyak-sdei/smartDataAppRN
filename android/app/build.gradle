@@ -1,7 +1,17 @@
 apply plugin: "com.android.application"
+apply plugin: 'com.google.gms.google-services' 
+apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+project.ext.envConfigFiles = [
+         proddebug: ".env.prod",
+         prodrelease: ".env.prod",
+         devdebug: ".env.dev",
+         devrelease: ".env.dev",
+]
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+//import com.android.build.OutputFile
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -76,7 +86,19 @@ android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
-
+    flavorDimensions "default"
+    productFlavors {
+        prod {
+            resValue "string", "build_config_package", "com.smartdataapprn"
+            resValue "string", "app_name", "Prod App"
+            applicationIdSuffix ".prod"
+           
+        }
+        dev {
+            resValue "string", "build_config_package", "com.smartdataapprn"
+            resValue "string", "app_name", "Dev App"      
+        }
+    }
     namespace "com.smartdataapprn"
     defaultConfig {
         applicationId "com.smartdataapprn"
@@ -100,8 +122,11 @@ android {
         }
     }
     buildTypes {
+      
         debug {
             signingConfig signingConfigs.debug
+            matchingFallbacks = ['debug', 'release']
+         
         }
         release {
             // Caution! In production, you need to generate your own keystore file.

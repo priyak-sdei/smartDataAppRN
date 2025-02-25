@@ -1,0 +1,19 @@
+export const IMAGES = {
+    auth: {
+        appleLogo: require('./auth/apple.png'),
+        googleLogo: require('./auth/google.png'),
+        facebookLogo: require('./auth/facebook.png'),
+        eye: require('./auth/eye.png'),
+        eyeSlash: require('./auth/eyeSlash.png'),
+    },
+    common: {
+        arrowLeft: require('./common/arrowLeft.png'),
+    },
+    home: {
+        profile: require('./home/profile.png'),
+    },
+    tabs: {
+        homeIcon: require('./tabs/homeIcon.png'),
+        calendarIcon: require('./tabs/calendarIcon.png'),
+    },
+};

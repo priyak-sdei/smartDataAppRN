@@ -1,10 +1,12 @@
+# React Native Project
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+## Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+### Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
@@ -18,11 +20,11 @@ npm start
 yarn start
 ```
 
-## Step 2: Start your Application
+### Step 2: Start your Application
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
 
-### For Android
+#### For Android
 
 ```bash
 # using npm
@@ -32,7 +34,7 @@ npm run android
 yarn android
 ```
 
-### For iOS
+#### For iOS
 
 ```bash
 # using npm
@@ -44,31 +46,129 @@ yarn ios
 
 If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
+### Step 3: Modifying your App
 
 Now that you have successfully run the app, let's modify it.
 
 1. Open `App.tsx` in your text editor of choice and edit some lines.
 2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+    For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
-## Congratulations! :tada:
+## Congratulations! 🎉
 
-You've successfully run and modified your React Native App. :partying_face:
+You've successfully run and modified your React Native App. 🎊
 
 ### Now what?
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
 - If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
 
-# Troubleshooting
+---
+
+## Tech Stack
+
+Nothing makes it into Ignite unless it's been proven on projects that Infinite Red works on. Ignite apps include the following rock-solid technical decisions out of the box:
+
+| Library                          | Category             | Version | Description                                    |
+| -------------------------------- | -------------------- | ------- | ---------------------------------------------- |
+| React Native                     | Mobile Framework     | v0.76   | The best cross-platform mobile framework       |
+| React                            | UI Framework         | v18     | The most popular UI framework in the world     |
+| TypeScript                       | Language             | v5      | Static typechecking                            |
+| React Navigation                 | Navigation           | v6      | Performant and consistent navigation framework |
+| Redux                            | State Management     | v5      | Observable state tree                          |
+| MobX-React-Lite                  | React Integration    | v3      | Re-render React performantly                   |
+| Expo                             | SDK                  | v52     | Allows (optional) Expo modules                 |
+| Expo Font                        | Custom Fonts         | v13     | Import custom fonts                            |
+| Expo Localization                | Internationalization | v16     | i18n support (including RTL!)                  |
+| Expo Status Bar                  | Status Bar Library   | v2      | Status bar support                             |
+| RN Reanimated                    | Animations           | v3      | Beautiful and performant animations            |
+| MMKV                             | Persistence          | v2      | State persistence                              |
+| apisauce                         | REST client          | v2      | Communicate with back-end                      |
+| Reactotron RN                    | Inspector/Debugger   | v3      | JS debugging                                   |
+| Hermes                           | JS engine            |         | Fine-tuned JS engine for RN                    |
+| Jest                             | Test Runner          | v29     | Standard test runner for JS apps               |
+| Maestro                          | Testing Framework    |         | Automate end-to-end UI testing                 |
+| date-fns                         | Date library         | v4      | Excellent date library                         |
+| react-native-keyboard-controller | Keyboard library     | v1      | Great keyboard manager library                 |
+| FlashList                        | FlatList replacement | v1      | A performant drop-in replacement for FlatList  |
+
+Ignite also comes with a [component library](./docs/boilerplate/app/components/Components.md) that is tuned for custom designs, theming support, testing, custom fonts, generators, and much, much more.
+
+--
+
+## 🔥 Architecture & Best Practices
+
+This project follows **best practices** to ensure high-quality, maintainable, and scalable code.
+
+### ✅ Code Quality & Standards
+
+- **Sonal Cube** – Code quality analysis and bug detection.
+- **ESLint & Prettier** – Enforce coding standards and auto-formatting.
+- **Husky Pre-Commit Hooks** – Linting and tests run before commits.
+- **Lint-Staged** – Run linters only on staged files.
+
+### ✅ Continuous Integration & Deployment (CI/CD)
+
+- **CI/CD for Android Release** – Automate builds, testing, and Play Store deployment.
+- **CI/CD for iOS TestFlight** – Automate iOS builds and TestFlight distribution.
+- **Fastlane** – Automate app deployment.
+
+### ✅ State Management & Performance Optimization
+
+- **Redux** – Predictable state management.
+- **React Query** – Efficient data fetching and caching.
+- **Reanimated / Gesture Handler** – Smooth animations and gesture support.
+- **Hermes Engine** – Optimized JS engine for better performance.
+- **Flipper Integration** – Debugging and performance monitoring tool.
+
+### ✅ Security & Authentication
+
+- **Secure Storage (Keychain / AsyncStorage)** – Secure local data storage.
+- **Code Obfuscation & ProGuard** – Protect source code from reverse engineering.
+
+### ✅ Monitoring & Analytics
+
+- **Firebase Crashlytics** – Monitor app crashes and errors.
+- **Firebase Analytics** – Track user behavior and app performance.
+
+### ✅ Testing & Debugging
+
+- **Jest & React Native Testing Library** – Unit and integration testing.
+- **Detox / Appium** – End-to-end UI testing.
+
+### ✅ API & Networking
+
+- **REST API (Axios / Fetch)** – API calls with error handling.
+- **GraphQL (Apollo / Relay)** – Efficient data fetching.
+- **WebSockets / MQTT** – Real-time data streaming.
+- **Environment-Based Configs** – Secure API keys using `.env`.
+
+### ✅ Offline Support & Caching
+
+- **AsyncStorage / MMKV** – Efficient local storage.
+- **SQLite / WatermelonDB / Realm** – Local database management.
+- **Redux Persist / React Query Cache** – Offline caching.
+
+### ✅ Navigation & Deep Linking
+
+- **React Navigation** – Screen-to-screen navigation.
+- **Deep Linking & Universal Links** – Handle external URL navigation.
+- **Dynamic Routing** – Parameter-based navigation.
+
+### ✅ Performance Optimization
+
+- **Lazy Loading & Code Splitting** – Reduce initial app load time.
+- **Image Optimization (react-native-fast-image)** – Load and cache images efficiently.
+- **Reduce Bundle Size (Metro Config / Hermes)** – Minimize app size.
+
+---
+
+## 🚀 Troubleshooting
 
 If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
 
-# Learn More
+## 📖 Learn More
 
 To learn more about React Native, take a look at the following resources:
 

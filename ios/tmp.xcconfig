@@ -1,0 +1,5 @@
+ENV=development
+URL=https:/$()/reqres.in
+GOOGLE_WEB_CLIENT=749712540931-hnosmvep8n82m2h87sv6n4bq396g8np6.apps.googleusercontent.com
+GOOGLE_WEB_CLIENT_RELEASE=749712540931-odqiuhkcvfef7js04isl38vpksqcth1r.apps.googleusercontent.com
+GOOGLE_IOS_CLIENT=749712540931-ke9n4mlqbc4en3mv5epfa05da11pnkak.apps.googleusercontent.com
