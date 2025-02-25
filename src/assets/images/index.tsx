@@ -12,4 +12,8 @@ export const IMAGES = {
     home: {
         profile: require('./home/profile.png'),
     },
+    tabs: {
+        homeIcon: require('./tabs/homeIcon.png'),
+        calendarIcon: require('./tabs/calendarIcon.png'),
+    },
 };
